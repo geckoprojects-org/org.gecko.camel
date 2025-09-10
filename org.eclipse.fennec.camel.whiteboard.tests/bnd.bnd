@@ -1,0 +1,26 @@
+Test-Cases: ${classes;HIERARCHY_INDIRECTLY_ANNOTATED;org.junit.platform.commons.annotation.Testable;CONCRETE}
+
+-library: \
+	enable-emf,\
+	enableOSGi-Test
+
+# sets the usually required buildpath using the bnd library, you can extend it with the normal -buildpath to your liking
+-buildpath: \
+	org.osgi.framework;version=latest,\
+	org.eclipse.fennec.camel.whiteboard;version=latest,\
+	org.osgi.service.cm;version=latest,\
+	org.osgi.service.condition;version=latest,\
+	org.osgi.util.tracker;version=latest,\
+	org.osgi.util.promise;version=latest,\
+	org.osgi.util.function;version=latest,\
+	camel-api;version=latest,\
+	camel-core-osgi;version=latest,\
+	camel-support;version=latest,\
+	org.osgi.test.junit5.cm;version=latest
+	
+Private-Package: org.eclipse.fennec.camel.whiteboard.tests
+
+Bundle-Version: 1.0.0.SNAPSHOT
+
+# Sometimes without DynamicImport Mockito will not find certain classes
+#DynamicImport-Package: *

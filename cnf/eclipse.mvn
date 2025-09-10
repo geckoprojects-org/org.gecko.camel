@@ -1,0 +1,9 @@
+org.eclipse.sensinact.gateway.core:annotation:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core:api:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core:emf-api:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core:geo-json:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core:impl:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core.models:provider:0.0.2.alpha_01
+org.eclipse.sensinact.gateway.core.models:testdata:0.0.2.alpha_01
+
+

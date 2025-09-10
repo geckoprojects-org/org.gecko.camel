@@ -1,0 +1,287 @@
+/*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved. 
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
+ */
+package org.eclipse.fennec.camel.camelspring.impl;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.fennec.camel.camelspring.CamelSpringPackage;
+import org.eclipse.fennec.camel.camelspring.PollDefinition;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Poll Definition</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.fennec.camel.camelspring.impl.PollDefinitionImpl#getTimeout <em>Timeout</em>}</li>
+ *   <li>{@link org.eclipse.fennec.camel.camelspring.impl.PollDefinitionImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.eclipse.fennec.camel.camelspring.impl.PollDefinitionImpl#getVariableReceive <em>Variable Receive</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class PollDefinitionImpl extends NoOutputDefinitionImpl implements PollDefinition {
+	/**
+	 * The default value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TIMEOUT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected String timeout = TIMEOUT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected String uri = URI_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVariableReceive() <em>Variable Receive</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariableReceive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARIABLE_RECEIVE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVariableReceive() <em>Variable Receive</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariableReceive()
+	 * @generated
+	 * @ordered
+	 */
+	protected String variableReceive = VARIABLE_RECEIVE_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PollDefinitionImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return CamelSpringPackage.eINSTANCE.getPollDefinition();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getTimeout() {
+		return timeout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTimeout(String newTimeout) {
+		String oldTimeout = timeout;
+		timeout = newTimeout;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CamelSpringPackage.POLL_DEFINITION__TIMEOUT, oldTimeout, timeout));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUri() {
+		return uri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUri(String newUri) {
+		String oldUri = uri;
+		uri = newUri;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CamelSpringPackage.POLL_DEFINITION__URI, oldUri, uri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getVariableReceive() {
+		return variableReceive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVariableReceive(String newVariableReceive) {
+		String oldVariableReceive = variableReceive;
+		variableReceive = newVariableReceive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CamelSpringPackage.POLL_DEFINITION__VARIABLE_RECEIVE, oldVariableReceive, variableReceive));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case CamelSpringPackage.POLL_DEFINITION__TIMEOUT:
+				return getTimeout();
+			case CamelSpringPackage.POLL_DEFINITION__URI:
+				return getUri();
+			case CamelSpringPackage.POLL_DEFINITION__VARIABLE_RECEIVE:
+				return getVariableReceive();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case CamelSpringPackage.POLL_DEFINITION__TIMEOUT:
+				setTimeout((String)newValue);
+				return;
+			case CamelSpringPackage.POLL_DEFINITION__URI:
+				setUri((String)newValue);
+				return;
+			case CamelSpringPackage.POLL_DEFINITION__VARIABLE_RECEIVE:
+				setVariableReceive((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case CamelSpringPackage.POLL_DEFINITION__TIMEOUT:
+				setTimeout(TIMEOUT_EDEFAULT);
+				return;
+			case CamelSpringPackage.POLL_DEFINITION__URI:
+				setUri(URI_EDEFAULT);
+				return;
+			case CamelSpringPackage.POLL_DEFINITION__VARIABLE_RECEIVE:
+				setVariableReceive(VARIABLE_RECEIVE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case CamelSpringPackage.POLL_DEFINITION__TIMEOUT:
+				return TIMEOUT_EDEFAULT == null ? timeout != null : !TIMEOUT_EDEFAULT.equals(timeout);
+			case CamelSpringPackage.POLL_DEFINITION__URI:
+				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+			case CamelSpringPackage.POLL_DEFINITION__VARIABLE_RECEIVE:
+				return VARIABLE_RECEIVE_EDEFAULT == null ? variableReceive != null : !VARIABLE_RECEIVE_EDEFAULT.equals(variableReceive);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (timeout: ");
+		result.append(timeout);
+		result.append(", uri: ");
+		result.append(uri);
+		result.append(", variableReceive: ");
+		result.append(variableReceive);
+		result.append(')');
+		return result.toString();
+	}
+
+} //PollDefinitionImpl

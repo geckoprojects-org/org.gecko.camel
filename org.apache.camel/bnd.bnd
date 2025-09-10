@@ -1,0 +1,95 @@
+-library: enable-emf
+
+lib.version: 4.14
+
+DynamicImport-Package: *
+
+#-buildpath: \
+#	slf4j.api;version=latest,\
+#	org.apache.camel:camel-api;version='${lib.version}',\
+#	org.apache.camel:camel-log;version='${lib.version}',\
+#	org.apache.camel:camel-bean;version='${lib.version}',\
+#	org.apache.camel:camel-management-api;version='${lib.version}',\
+#	org.apache.camel:camel-util;version='${lib.version}',\
+#	org.apache.camel:camel-base;version='${lib.version}',\
+#	org.apache.camel:camel-base-engine;version='${lib.version}',\
+#	org.apache.camel:camel-core;version='${lib.version}',\
+#	org.apache.camel:camel-core-engine;version='${lib.version}',\
+#	org.apache.camel:camel-core-languages;version='${lib.version}',\
+#	org.apache.camel:camel-core-reifier;version='${lib.version}',\
+#	org.apache.camel:camel-core-model;version='${lib.version}',\
+#	org.apache.camel:camel-management;version='${lib.version}',\
+#	org.apache.camel:camel-support;version='${lib.version}',\
+#	org.apache.camel:camel-core-processor;version='${lib.version}',\
+#	org.apache.camel:camel-core-catalog;version='${lib.version}',\
+#	org.apache.camel:camel-timer;version='${lib.version}',\
+#	org.apache.camel:camel-main;version='${lib.version}',\
+#	org.gecko.emf.sensinact.tests;version=snapshot,\
+#	camel-core-model
+-buildpath: \
+	slf4j.api;version=latest,\
+	jakarta.annotation-api;version=latest,\
+	org.osgi.service.condition;version=latest,\
+	camel-api;version=latest,\
+	camel-timer;version=latest,\
+	camel-log;version=latest,\
+	camel-base;version=latest,\
+	camel-bean;version=latest,\
+	camel-util;version=latest,\
+	camel-core-osgi;version=latest,\
+	camel-base-engine;version=latest,\
+	camel-core-engine;version=latest,\
+	camel-core-model;version=latest,\
+	camel-support;version=latest,\
+	camel-core-languages;version=latest,\
+	camel-core-processor;version=latest,\
+	org.gecko.emf.sensinact.tests;version=latest,\
+	camel-direct
+	
+#-includeresource: \
+#	OSGI-OPT/src=@${repo;org.apache.camel:camel-api:jar:sources;${lib.version};EXACT},\
+#	OSGI-OPT/src=@${repo;org.apache.camel:camel-util:jar:sources;${lib.version};EXACT}
+#-includeresource: \
+#	@${repo;org.apache.camel:camel-api;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-api;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-bean;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-bean;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-log;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-log;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-engine;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-engine;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-languages;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-languages;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-model;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-model;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-processor;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-processor;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-reifier;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-reifier;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-catalog;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-core-catalog;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-management;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-management;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-support;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-support;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-timer;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-timer;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-main;${lib.version}}!/META-INF/services/*;onduplicate:=MERGE,\
+#	@${repo;org.apache.camel:camel-main;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE
+	
+
+Bundle-Version: ${lib.version}
+Bundle-Localization: bundle
+Bundle-Name: Re-packaged JAR
+Bundle-Vendor: ACME Inc.
+#Export-Package: org.apache.camel.*
+#Import-Package: \
+#	org.apache.camel.util.xml*;'resolution:'=optional,\
+#	org.apache.camel.util.json*;'resolution:'=optional,\
+#	org.apache.camel.tooling*;'resolution:'=optional,\
+#	org.apache.camel.saga*;'resolution:'=optional,\
+#	org.apache.camel.xml*;'resolution:'=optional,\
+#	io.quarkus.*;'resolution:'=optional,\
+#	*

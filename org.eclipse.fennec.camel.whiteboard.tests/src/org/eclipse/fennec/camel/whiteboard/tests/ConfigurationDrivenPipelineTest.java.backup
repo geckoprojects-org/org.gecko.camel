@@ -1,0 +1,337 @@
+/*
+
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
+ */
+package org.eclipse.fennec.camel.whiteboard.tests;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import org.eclipse.fennec.camel.whiteboard.ConfigurationAgent;
+import org.eclipse.fennec.camel.whiteboard.ConfigurationManager;
+import org.eclipse.fennec.camel.whiteboard.pipeline.ConsumerConfiguration;
+import org.eclipse.fennec.camel.whiteboard.pipeline.PipelineDefinition;
+import org.eclipse.fennec.camel.whiteboard.pipeline.PipelinePackage;
+import org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EFactory;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.cm.Configuration;
+import org.osgi.service.cm.ConfigurationAdmin;
+import org.osgi.service.condition.Condition;
+import org.osgi.test.common.annotation.InjectBundleContext;
+import org.osgi.test.common.annotation.InjectService;
+import org.osgi.test.common.annotation.Property;
+import org.osgi.test.common.annotation.config.WithFactoryConfiguration;
+import org.osgi.test.junit5.cm.ConfigurationExtension;
+import org.osgi.test.junit5.context.BundleContextExtension;
+import org.osgi.test.junit5.service.ServiceExtension;
+import org.osgi.test.common.service.ServiceAware;
+
+/**
+ * Integration tests for the complete configuration-driven pipeline lifecycle.
+ * 
+ * Tests the flow: EMF Configuration → ConfigurationAgent → ConfigAdmin → 
+ * PipelineWhiteboardInstance → ServiceTracker → Camel Context → Pipeline Ready
+ */
+@ExtendWith(BundleContextExtension.class)
+@ExtendWith(ServiceExtension.class)
+@ExtendWith(ConfigurationExtension.class)
+public class ConfigurationDrivenPipelineTest {
+
+    private BundleContext bundleContext;
+    private ConfigurationAgent configurationAgent;
+    private ConfigurationManager configurationManager;
+    private ConfigurationAdmin configAdmin;
+
+    @BeforeEach
+    public void setUp(@InjectBundleContext BundleContext ctx,
+                     @InjectService ConfigurationAgent agent,
+                     @InjectService ConfigurationManager manager,
+                     @InjectService ConfigurationAdmin admin) {
+        this.bundleContext = ctx;
+        this.configurationAgent = agent;
+        this.configurationManager = manager;
+        this.configAdmin = admin;
+    }
+
+    @Test
+    public void testConfigurationAgentAvailable() {
+        assertNotNull(configurationAgent, "ConfigurationAgent service should be available");
+        assertNotNull(configurationManager, "ConfigurationManager service should be available");
+        assertNotNull(configAdmin, "ConfigurationAdmin service should be available");
+    }
+
+    @Test
+    @WithFactoryConfiguration(
+        factoryPid = "org.eclipse.fennec.camel.whiteboard.PipelineWhiteboardInstance",
+        name = "direct-factory-test",
+        properties = {
+            @Property(key = "pipelineId", value = "factory-test-pipeline"),
+            @Property(key = "consumerName", value = "Direct Factory Test"),
+            @Property(key = "autoStart", value = "true"),
+            @Property(key = "routeContent", value = "- route:\\n    from:\\n      uri: timer:factory-test\\n    steps:\\n      - log: Factory configuration test")
+        }
+    )
+    public void testDirectFactoryConfigurationCreation() throws Exception {
+        // Test pipeline created directly via factory configuration annotation
+        String pipelineId = "factory-test-pipeline";
+        
+        // Pipeline should become ready automatically
+        boolean ready = waitForPipelineReadiness(pipelineId, 15, TimeUnit.SECONDS);
+        assertTrue(ready, "Pipeline should become ready via factory configuration annotation");
+        
+        // Verify condition service is published
+        ServiceReference<Condition> conditionRef = bundleContext.getServiceReference(Condition.class);
+        assertNotNull(conditionRef, "Pipeline readiness condition should be published");
+        
+        String conditionId = (String) conditionRef.getProperty(Condition.CONDITION_ID);
+        assertEquals("pipeline.ready." + pipelineId, conditionId, "Condition ID should match pipeline ID");
+    }
+
+    @Test  
+    public void testSimplePipelineCreationAndReadiness(
+            @InjectService(cardinality = 0, filter = "(condition.id=pipeline.ready.test-consumer)")
+            ServiceAware<Condition> pipelineReadyCondition) throws Exception {
+        
+        // Create EMF pipeline definition with simple route
+        PipelineDefinition pipeline = createSimplePipelineDefinition();
+        
+        // Create EMF consumer configuration
+        ConsumerConfiguration consumer = createConsumerConfiguration(pipeline);
+        
+        // Process configuration through ConfigurationAgent
+        configurationAgent.processConsumerConfiguration(consumer);
+        
+        // Wait for pipeline readiness condition using ServiceAware
+        Condition condition = pipelineReadyCondition.waitForService(10000);
+        assertNotNull(condition, "Pipeline should become ready within 10 seconds");
+        assertEquals(Condition.INSTANCE, condition, "Condition should be satisfied");
+        
+        // Verify condition service properties
+        ServiceReference<Condition> conditionRef = pipelineReadyCondition.getServiceReference();
+        assertNotNull(conditionRef, "Pipeline readiness condition reference should be available");
+        
+        String conditionId = (String) conditionRef.getProperty(Condition.CONDITION_ID);
+        assertEquals("pipeline.ready.test-consumer", conditionId, "Condition ID should match pipeline ID");
+    }
+
+    @Test
+    public void testPipelineWithDependencies(
+            @InjectService(cardinality = 0, filter = "(condition.id=pipeline.ready.test-consumer)")
+            ServiceAware<Condition> pipelineReadyCondition) throws Exception {
+        
+        // Create pipeline that depends on a mock service
+        PipelineDefinition pipeline = createPipelineWithServiceDependency();
+        ConsumerConfiguration consumer = createConsumerConfiguration(pipeline);
+        
+        // Process configuration - pipeline should NOT become ready yet
+        configurationAgent.processConsumerConfiguration(consumer);
+        
+        // Try to wait for readiness - should timeout (pipeline not ready without service)
+        Condition condition = pipelineReadyCondition.waitForService(2000);
+        assertNull(condition, "Pipeline should not be ready without required service");
+        
+        // Register the required service
+        Dictionary<String, Object> serviceProps = new Hashtable<>();
+        serviceProps.put("service.id", "test-service");
+        bundleContext.registerService(TestService.class, new TestServiceImpl(), serviceProps);
+        
+        // Now pipeline should become ready
+        condition = pipelineReadyCondition.waitForService(10000);
+        assertNotNull(condition, "Pipeline should become ready after service is registered");
+        assertEquals(Condition.INSTANCE, condition, "Condition should be satisfied");
+    }
+
+    @Test
+    public void testPipelineConfigurationUpdate() throws Exception {
+        // Create and process initial configuration
+        PipelineDefinition pipeline = createSimplePipelineDefinition();
+        ConsumerConfiguration consumer = createConsumerConfiguration(pipeline);
+        
+        configurationAgent.processConsumerConfiguration(consumer);
+        
+        String pipelineId = consumer.getId();
+        boolean ready = waitForPipelineReadiness(pipelineId, 10, TimeUnit.SECONDS);
+        assertTrue(ready, "Initial pipeline should become ready");
+        
+        // Update configuration via ConfigAdmin
+        Configuration config = findPipelineConfiguration(pipelineId);
+        assertNotNull(config, "Pipeline configuration should exist");
+        
+        Dictionary<String, Object> props = new Hashtable<>();
+        props.put("pipelineId", pipelineId);
+        props.put("consumerName", "Updated Consumer");
+        props.put("autoStart", true);
+        
+        config.update(props);
+        
+        // Verify configuration update is processed
+        // (This would trigger component reconfiguration in real scenario)
+        Thread.sleep(1000); // Allow for processing
+        
+        // Pipeline should still be ready
+        ready = isPipelineReady(pipelineId);
+        assertTrue(ready, "Pipeline should remain ready after configuration update");
+    }
+
+    @Test
+    public void testMultiplePipelinesIndependentReadiness() throws Exception {
+        // Create two different pipelines
+        PipelineDefinition pipeline1 = createSimplePipelineDefinition();
+        pipeline1.setId("pipeline-1");
+        ConsumerConfiguration consumer1 = createConsumerConfiguration(pipeline1);
+        consumer1.setId("consumer-1");
+        
+        PipelineDefinition pipeline2 = createPipelineWithServiceDependency();
+        pipeline2.setId("pipeline-2");
+        ConsumerConfiguration consumer2 = createConsumerConfiguration(pipeline2);
+        consumer2.setId("consumer-2");
+        
+        // Process both configurations
+        configurationAgent.processConsumerConfiguration(consumer1);
+        configurationAgent.processConsumerConfiguration(consumer2);
+        
+        // First pipeline should become ready (no dependencies)
+        boolean ready1 = waitForPipelineReadiness("consumer-1", 10, TimeUnit.SECONDS);
+        assertTrue(ready1, "First pipeline should become ready");
+        
+        // Second pipeline should NOT be ready (has dependency)
+        boolean ready2 = isPipelineReady("consumer-2");
+        assertFalse(ready2, "Second pipeline should not be ready without service");
+        
+        // Register service for second pipeline
+        bundleContext.registerService(TestService.class, new TestServiceImpl(), new Hashtable<>());
+        
+        // Now second pipeline should become ready
+        ready2 = waitForPipelineReadiness("consumer-2", 10, TimeUnit.SECONDS);
+        assertTrue(ready2, "Second pipeline should become ready after service registration");
+        
+        // First pipeline should still be ready
+        ready1 = isPipelineReady("consumer-1");
+        assertTrue(ready1, "First pipeline should remain ready");
+    }
+
+    @Test
+    public void testPipelineShutdownWhenServiceUnavailable() throws Exception {
+        // Create pipeline with service dependency
+        PipelineDefinition pipeline = createPipelineWithServiceDependency();
+        ConsumerConfiguration consumer = createConsumerConfiguration(pipeline);
+        
+        // Register required service first
+        Dictionary<String, Object> serviceProps = new Hashtable<>();
+        serviceProps.put("service.id", "test-service");
+        var serviceReg = bundleContext.registerService(TestService.class, new TestServiceImpl(), serviceProps);
+        
+        // Process configuration
+        configurationAgent.processConsumerConfiguration(consumer);
+        
+        String pipelineId = consumer.getId();
+        boolean ready = waitForPipelineReadiness(pipelineId, 10, TimeUnit.SECONDS);
+        assertTrue(ready, "Pipeline should become ready with service available");
+        
+        // Unregister the service
+        serviceReg.unregister();
+        
+        // Pipeline should become not ready
+        boolean notReady = waitForPipelineNotReady(pipelineId, 10, TimeUnit.SECONDS);
+        assertTrue(notReady, "Pipeline should become not ready when service is unregistered");
+    }
+
+    // Helper methods
+
+    private PipelineDefinition createSimplePipelineDefinition() {
+        var factory = PipelinePackage.eINSTANCE.getPipelineFactory();
+        
+        PipelineDefinition pipeline = factory.createPipelineDefinition();
+        pipeline.setId("simple-pipeline");
+        pipeline.setName("Simple Test Pipeline");
+        pipeline.setVersion("1.0.0");
+        
+        TextualRouteDefinition route = factory.createTextualRouteDefinition();
+        route.setContent("- route:\n    from:\n      uri: timer:test\n    steps:\n      - log: Test message");
+        
+        pipeline.setRouteDefinition(route);
+        return pipeline;
+    }
+
+    private PipelineDefinition createPipelineWithServiceDependency() {
+        PipelineDefinition pipeline = createSimplePipelineDefinition();
+        pipeline.setId("pipeline-with-service");
+        
+        // Add service dependency
+        var factory = PipelinePackage.eINSTANCE.getPipelineFactory();
+        var dependency = factory.createServiceDependency();
+        dependency.setServiceInterface(TestService.class.getName());
+        dependency.setBindName("testService");
+        dependency.setOptional(false);
+        
+        pipeline.getDependencies().add(dependency);
+        return pipeline;
+    }
+
+    private ConsumerConfiguration createConsumerConfiguration(PipelineDefinition pipeline) {
+        var factory = PipelinePackage.eINSTANCE.getPipelineFactory();
+        
+        ConsumerConfiguration consumer = factory.createConsumerConfiguration();
+        consumer.setId("test-consumer");
+        consumer.setName("Test Consumer");
+        consumer.setInlinePipeline(pipeline);
+        consumer.setAutoStart(true);
+        
+        return consumer;
+    }
+
+    // Helper methods for checking pipeline readiness using ServiceReference lookup
+    private boolean isPipelineReady(String pipelineId) {
+        try {
+            ServiceReference<Condition>[] refs = (ServiceReference<Condition>[]) bundleContext.getServiceReferences(
+                Condition.class.getName(), 
+                "(condition.id=pipeline.ready." + pipelineId + ")");
+            
+            if (refs != null && refs.length > 0) {
+                Condition condition = bundleContext.getService(refs[0]);
+                return Condition.INSTANCE.equals(condition);
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private Configuration findPipelineConfiguration(String pipelineId) throws Exception {
+        Configuration[] configs = configAdmin.listConfigurations(
+            "(pipelineId=" + pipelineId + ")");
+        return (configs != null && configs.length > 0) ? configs[0] : null;
+    }
+
+    // Test service interface and implementation
+    public interface TestService {
+        void doSomething();
+    }
+
+    public static class TestServiceImpl implements TestService {
+        @Override
+        public void doSomething() {
+            // Test implementation
+        }
+    }
+}
