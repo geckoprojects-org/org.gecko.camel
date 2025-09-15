@@ -55,7 +55,8 @@ public class CamelCondition implements Condition {
 
 	// Required minimum services for Camel to be considered ready
 	private static final Set<String> REQUIRED_LANGUAGES = Set.of("simple", "constant", "header");
-	private static final Set<String> REQUIRED_COMPONENTS = Set.of("timer", "log", "direct", "bean", "class", "language");
+	private static final Set<String> REQUIRED_COMPONENTS = Set.of("timer", "log", "direct", "bean", "class", "language", "kafka");
+//	private static final Set<String> REQUIRED_COMPONENTS = Set.of("timer", "log", "direct", "bean", "class", "language");
 
 	// Track all discovered service properties
 	private final Map<ServiceReference<?>, Map<String, Object>> languageServices = new ConcurrentHashMap<>();

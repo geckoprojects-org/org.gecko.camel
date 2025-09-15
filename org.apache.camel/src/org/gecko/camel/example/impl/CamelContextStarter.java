@@ -28,7 +28,11 @@ public class CamelContextStarter implements CamelContextConfigurer {
 	private Processor loadProcessor;
 	@Reference(target = "(camel.processorName=EMFSave)")
 	private Processor saveProcessor;
-	@Reference(target = "(camel.route=my)")
+	
+//  for kafka:
+	@Reference(target = "(camel.route=myK)")
+//	for simple or emf
+//	@Reference(target = "(camel.route=my)")
 	private RouteProvider route;
 
 	@Override

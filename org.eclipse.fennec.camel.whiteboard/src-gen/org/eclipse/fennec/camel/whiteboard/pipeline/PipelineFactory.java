@@ -63,24 +63,6 @@ public interface PipelineFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>Java DSL Route Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Java DSL Route Definition</em>'.
-	 * @generated
-	 */
-	JavaDSLRouteDefinition createJavaDSLRouteDefinition();
-
-	/**
-	 * Returns a new object of class '<em>Textual Route Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textual Route Definition</em>'.
-	 * @generated
-	 */
-	TextualRouteDefinition createTextualRouteDefinition();
-
-	/**
 	 * Returns a new object of class '<em>Consumer Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

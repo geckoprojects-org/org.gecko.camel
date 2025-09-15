@@ -1,0 +1,8 @@
+-library: \
+	enable-emf
+
+-buildpath: \
+	org.osgi.framework;version=latest,\
+	slf4j.api;version=latest,\
+	org.apache.kafka.clients;version=snapshot,\
+	org.eclipse.fennec.demo.model;version=snapshot

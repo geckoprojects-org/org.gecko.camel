@@ -71,8 +71,6 @@ public class PipelineFactoryImpl extends EFactoryImpl implements PipelineFactory
 			case PipelinePackage.PIPELINE_DEFINITION: return createPipelineDefinition();
 			case PipelinePackage.SERVICE_DEPENDENCY: return createServiceDependency();
 			case PipelinePackage.PARAMETER: return createParameter();
-			case PipelinePackage.JAVA_DSL_ROUTE_DEFINITION: return createJavaDSLRouteDefinition();
-			case PipelinePackage.TEXTUAL_ROUTE_DEFINITION: return createTextualRouteDefinition();
 			case PipelinePackage.CONSUMER_CONFIGURATION: return createConsumerConfiguration();
 			case PipelinePackage.PARAMETER_VALUE: return createParameterValue();
 			default:
@@ -92,8 +90,6 @@ public class PipelineFactoryImpl extends EFactoryImpl implements PipelineFactory
 				return createDependencyCardinalityFromString(eDataType, initialValue);
 			case PipelinePackage.PARAMETER_TYPE:
 				return createParameterTypeFromString(eDataType, initialValue);
-			case PipelinePackage.ROUTE_DEFINITION_FORMAT:
-				return createRouteDefinitionFormatFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,8 +107,6 @@ public class PipelineFactoryImpl extends EFactoryImpl implements PipelineFactory
 				return convertDependencyCardinalityToString(eDataType, instanceValue);
 			case PipelinePackage.PARAMETER_TYPE:
 				return convertParameterTypeToString(eDataType, instanceValue);
-			case PipelinePackage.ROUTE_DEFINITION_FORMAT:
-				return convertRouteDefinitionFormatToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -149,28 +143,6 @@ public class PipelineFactoryImpl extends EFactoryImpl implements PipelineFactory
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public JavaDSLRouteDefinition createJavaDSLRouteDefinition() {
-		JavaDSLRouteDefinitionImpl javaDSLRouteDefinition = new JavaDSLRouteDefinitionImpl();
-		return javaDSLRouteDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TextualRouteDefinition createTextualRouteDefinition() {
-		TextualRouteDefinitionImpl textualRouteDefinition = new TextualRouteDefinitionImpl();
-		return textualRouteDefinition;
 	}
 
 	/**
@@ -232,26 +204,6 @@ public class PipelineFactoryImpl extends EFactoryImpl implements PipelineFactory
 	 * @generated
 	 */
 	public String convertParameterTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RouteDefinitionFormat createRouteDefinitionFormatFromString(EDataType eDataType, String initialValue) {
-		RouteDefinitionFormat result = RouteDefinitionFormat.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRouteDefinitionFormatToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

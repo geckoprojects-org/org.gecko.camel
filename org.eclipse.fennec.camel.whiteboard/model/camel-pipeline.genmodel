@@ -4,6 +4,7 @@
     modelDirectory="/org.eclipsefennec.camel.whiteboard/src" modelPluginID="org.eclipsefennec.camel.whiteboard"
     modelName="CamelPipeline" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.fennec.camel.model/model/camel-spring.genmodel#//camelspring"
     operationReflection="true" importOrganizing="true" oSGiCompatible="true">
   <foreignModel>camel-pipeline.ecore</foreignModel>
   <genPackages prefix="Pipeline" basePackage="org.eclipse.fennec.camel.whiteboard"
@@ -18,12 +19,6 @@
       <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//ParameterType/BOOLEAN"/>
       <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//ParameterType/DOUBLE"/>
       <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//ParameterType/LONG"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="camel-pipeline.ecore#//RouteDefinitionFormat">
-      <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//RouteDefinitionFormat/JAVA_DSL"/>
-      <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//RouteDefinitionFormat/YAML"/>
-      <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//RouteDefinitionFormat/JSON"/>
-      <genEnumLiterals ecoreEnumLiteral="camel-pipeline.ecore#//RouteDefinitionFormat/XML"/>
     </genEnums>
     <genClasses ecoreClass="camel-pipeline.ecore#//PipelineDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//PipelineDefinition/id"/>
@@ -47,15 +42,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//Parameter/required"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//Parameter/defaultValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//Parameter/description"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="camel-pipeline.ecore#//RouteDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//RouteDefinition/format"/>
-    </genClasses>
-    <genClasses ecoreClass="camel-pipeline.ecore#//JavaDSLRouteDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//JavaDSLRouteDefinition/builderClassName"/>
-    </genClasses>
-    <genClasses ecoreClass="camel-pipeline.ecore#//TextualRouteDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//TextualRouteDefinition/content"/>
     </genClasses>
     <genClasses ecoreClass="camel-pipeline.ecore#//ConsumerConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute camel-pipeline.ecore#//ConsumerConfiguration/id"/>

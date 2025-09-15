@@ -312,135 +312,6 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	int PARAMETER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.RouteDefinitionImpl <em>Route Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.RouteDefinitionImpl
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getRouteDefinition()
-	 * @generated
-	 */
-	int ROUTE_DEFINITION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_DEFINITION__FORMAT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_DEFINITION_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_DEFINITION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.JavaDSLRouteDefinitionImpl <em>Java DSL Route Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.JavaDSLRouteDefinitionImpl
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getJavaDSLRouteDefinition()
-	 * @generated
-	 */
-	int JAVA_DSL_ROUTE_DEFINITION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_DSL_ROUTE_DEFINITION__FORMAT = ROUTE_DEFINITION__FORMAT;
-
-	/**
-	 * The feature id for the '<em><b>Builder Class Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_DSL_ROUTE_DEFINITION__BUILDER_CLASS_NAME = ROUTE_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Java DSL Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_DSL_ROUTE_DEFINITION_FEATURE_COUNT = ROUTE_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Java DSL Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_DSL_ROUTE_DEFINITION_OPERATION_COUNT = ROUTE_DEFINITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.TextualRouteDefinitionImpl <em>Textual Route Definition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.TextualRouteDefinitionImpl
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getTextualRouteDefinition()
-	 * @generated
-	 */
-	int TEXTUAL_ROUTE_DEFINITION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXTUAL_ROUTE_DEFINITION__FORMAT = ROUTE_DEFINITION__FORMAT;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXTUAL_ROUTE_DEFINITION__CONTENT = ROUTE_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Textual Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXTUAL_ROUTE_DEFINITION_FEATURE_COUNT = ROUTE_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Textual Route Definition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXTUAL_ROUTE_DEFINITION_OPERATION_COUNT = ROUTE_DEFINITION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.ConsumerConfigurationImpl <em>Consumer Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,7 +319,7 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getConsumerConfiguration()
 	 * @generated
 	 */
-	int CONSUMER_CONFIGURATION = 6;
+	int CONSUMER_CONFIGURATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -530,7 +401,7 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getParameterValue()
 	 * @generated
 	 */
-	int PARAMETER_VALUE = 7;
+	int PARAMETER_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Name</b></em>' attribute.
@@ -576,7 +447,7 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getDependencyCardinality()
 	 * @generated
 	 */
-	int DEPENDENCY_CARDINALITY = 8;
+	int DEPENDENCY_CARDINALITY = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.ParameterType <em>Parameter Type</em>}' enum.
@@ -586,17 +457,7 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getParameterType()
 	 * @generated
 	 */
-	int PARAMETER_TYPE = 9;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat <em>Route Definition Format</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getRouteDefinitionFormat()
-	 * @generated
-	 */
-	int ROUTE_DEFINITION_FORMAT = 10;
+	int PARAMETER_TYPE = 6;
 
 
 	/**
@@ -817,69 +678,6 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	EAttribute getParameter_Description();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition <em>Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Route Definition</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition
-	 * @generated
-	 */
-	EClass getRouteDefinition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition#getFormat()
-	 * @see #getRouteDefinition()
-	 * @generated
-	 */
-	EAttribute getRouteDefinition_Format();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition <em>Java DSL Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Java DSL Route Definition</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition
-	 * @generated
-	 */
-	EClass getJavaDSLRouteDefinition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition#getBuilderClassName <em>Builder Class Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Builder Class Name</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition#getBuilderClassName()
-	 * @see #getJavaDSLRouteDefinition()
-	 * @generated
-	 */
-	EAttribute getJavaDSLRouteDefinition_BuilderClassName();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition <em>Textual Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Textual Route Definition</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition
-	 * @generated
-	 */
-	EClass getTextualRouteDefinition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition#getContent()
-	 * @see #getTextualRouteDefinition()
-	 * @generated
-	 */
-	EAttribute getTextualRouteDefinition_Content();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.ConsumerConfiguration <em>Consumer Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1006,16 +804,6 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 	 * @generated
 	 */
 	EEnum getParameterType();
-
-	/**
-	 * Returns the meta object for enum '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat <em>Route Definition Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Route Definition Format</em>'.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat
-	 * @generated
-	 */
-	EEnum getRouteDefinitionFormat();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1207,60 +995,6 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 		EAttribute PARAMETER__DESCRIPTION = eINSTANCE.getParameter_Description();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.RouteDefinitionImpl <em>Route Definition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.RouteDefinitionImpl
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getRouteDefinition()
-		 * @generated
-		 */
-		EClass ROUTE_DEFINITION = eINSTANCE.getRouteDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROUTE_DEFINITION__FORMAT = eINSTANCE.getRouteDefinition_Format();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.JavaDSLRouteDefinitionImpl <em>Java DSL Route Definition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.JavaDSLRouteDefinitionImpl
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getJavaDSLRouteDefinition()
-		 * @generated
-		 */
-		EClass JAVA_DSL_ROUTE_DEFINITION = eINSTANCE.getJavaDSLRouteDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Builder Class Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_DSL_ROUTE_DEFINITION__BUILDER_CLASS_NAME = eINSTANCE.getJavaDSLRouteDefinition_BuilderClassName();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.TextualRouteDefinitionImpl <em>Textual Route Definition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.TextualRouteDefinitionImpl
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getTextualRouteDefinition()
-		 * @generated
-		 */
-		EClass TEXTUAL_ROUTE_DEFINITION = eINSTANCE.getTextualRouteDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXTUAL_ROUTE_DEFINITION__CONTENT = eINSTANCE.getTextualRouteDefinition_Content();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.impl.ConsumerConfigurationImpl <em>Consumer Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1363,16 +1097,6 @@ public interface PipelinePackage extends org.eclipse.emf.ecore.EPackage {
 		 * @generated
 		 */
 		EEnum PARAMETER_TYPE = eINSTANCE.getParameterType();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat <em>Route Definition Format</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat
-		 * @see org.eclipse.fennec.camel.whiteboard.pipeline.impl.PipelinePackageImpl#getRouteDefinitionFormat()
-		 * @generated
-		 */
-		EEnum ROUTE_DEFINITION_FORMAT = eINSTANCE.getRouteDefinitionFormat();
 
 	}
 

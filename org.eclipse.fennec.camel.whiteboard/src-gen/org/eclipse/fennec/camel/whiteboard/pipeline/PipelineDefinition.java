@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.fennec.camel.camelspring.RouteDefinition;
+
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -183,7 +185,7 @@ public interface PipelineDefinition extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The route configuration definition
+	 * The route configuration definition using camel-spring model
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Route Definition</em>' containment reference.
 	 * @see #setRouteDefinition(RouteDefinition)

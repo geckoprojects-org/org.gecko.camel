@@ -12,7 +12,8 @@
 	bnd.identity;id=camel-bean,\
 	bnd.identity;id=camel-main,\
 	bnd.identity;id=camel-xml-io,\
-	bnd.identity;id=camel-direct
+	bnd.identity;id=camel-direct,\
+	bnd.identity;id=camel-kafka
 -runbundles: \
 	jakarta.activation-api;version='[2.1.1,2.1.2)',\
 	jakarta.xml.bind-api;version='[4.0.0,4.0.1)',\
@@ -77,4 +78,10 @@
 	org.osgi.service.typedevent;version='[1.1.0,1.1.1)',\
 	org.osgi.test.common;version='[1.3.0,1.3.1)',\
 	org.osgi.test.junit5;version='[1.3.0,1.3.1)',\
-	org.osgi.util.pushstream;version='[1.1.0,1.1.1)'
+	org.osgi.util.pushstream;version='[1.1.0,1.1.1)',\
+	camel-health;version='[4.10.5,4.10.6)',\
+	camel-kafka;version='[4.10.5,4.10.6)',\
+	com.github.luben.zstd-jni;version='[1.5.7,1.5.8)',\
+	lz4-java;version='[1.8.0,1.8.1)',\
+	org.apache.kafka.clients;version=snapshot,\
+	org.xerial.snappy.snappy-java;version='[1.1.10,1.1.11)'

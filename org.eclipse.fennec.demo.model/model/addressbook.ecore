@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="addressbook" nsURI="http://example.de/person/1.0" nsPrefix="ab">
+  <eAnnotations source="Version">
+    <details key="value" value="1.0"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="oSGiCompatible" value="true"/>
+    <details key="basePackage" value="org.eclipse.fennec.demo"/>
+    <details key="fileExtensions" value="adr"/>
+    <details key="resource" value="XMI"/>
+    <details key="prefix" value="AddressBook"/>
+    <details key="copyrightText" value="Copyright (c) 2012 - 2025 Data In Motion and others.&#xA;All rights reserved. &#xA;&#xA;This program and the accompanying materials are made&#xA;available under the terms of the Eclipse Public License 2.0&#xA;which is available at https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;     Mark Hoffmann - initial API and implementation"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="AddressBook">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addressBookId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addresses" upperBound="-1"
+        eType="#//Address" containment="true" eKeys="#//Address/street #//Address/city #//Address/zip"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persons" upperBound="-1"
+        eType="#//Person" containment="true" eKeys="#//Person/firstName #//Person/lastName #//Person/birthDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Address">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="street" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zip" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessAddress" eSuperTypes="#//Address">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="responsiblePerson" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="building" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="companyName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
+        eType="#//Person" eOpposite="#//Person/businessAddress" eKeys="#//Person/firstName #//Person/lastName #//Person/birthDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="birthDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" lowerBound="1"
+        eType="#//Address" eKeys="#//Address/street #//Address/city #//Address/zip"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessAddress" eType="#//BusinessAddress"
+        eOpposite="#//BusinessAddress/employees" eKeys="#//Address/street #//Address/city #//Address/zip"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
+        eType="#//Contact" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contact">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContactType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContactType">
+    <eLiterals name="MOBILE"/>
+    <eLiterals name="EMAIL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessContact" eSuperTypes="#//Contact"/>
+</ecore:EPackage>

@@ -23,6 +23,9 @@ The project uses Gradle with the BND Workspace plugin for OSGi bundle management
 # Run tests (OSGi integration tests)
 ./gradlew test
 
+# Run specific OSGi integration tests
+./gradlew testOSGi
+
 # Generate code coverage report
 ./gradlew codeCoverageReport
 
@@ -31,6 +34,9 @@ The project uses Gradle with the BND Workspace plugin for OSGi bundle management
 
 # Resolve bndrun files (explicit gradle task needed)
 ./gradlew resolve
+
+# Resolve specific test bndrun file
+./gradlew resolve.test
 ```
 
 ## Project Structure
@@ -38,10 +44,13 @@ The project uses Gradle with the BND Workspace plugin for OSGi bundle management
 The workspace contains several OSGi bundles:
 
 ### Core Bundles
-- **org.eclipse.fennec.camel.whiteboard**: Dynamic Camel pipeline management with EMF-based configuration
-- **org.eclipse.fennec.camel.whiteboard.tests**: OSGi integration tests for whiteboard implementation
-- **org.apache.camel**: Example Camel integration implementations and processors
-- **sources/**: Reference implementations from Apache Camel (camel-blueprint, camel-core-osgi)
+- **org.eclipse.fennec.camel.whiteboard**: EMF pipeline models and archived reference implementations
+  - **Active**: EMF generated pipeline models (`src-gen/org/eclipse/fennec/camel/whiteboard/pipeline/`)
+  - **Archived**: Complete whiteboard implementation (`src/org/eclipse/fennec/camel/old/`) - reference only, no modifications
+- **org.eclipse.fennec.camel.whiteboard.tests**: OSGi integration tests for whiteboard implementation  
+- **org.eclipse.fennec.camel.model**: EMF model definitions for pipeline configuration
+- **org.apache.camel**: **Working Example** - Stable Apache Camel OSGi setup with EMF integration and dependency tracking (no modifications)
+- **sources/**: Reference implementations from Apache Camel (camel-blueprint, camel-core-osgi, osgi-test)
 
 ### Model Generation
 
@@ -134,10 +143,16 @@ The project implements a configuration-driven Camel pipeline system with:
 
 ### OSGi Integration Testing
 1. Create test project with `-library: enableOSGi-Test` in `bnd.bnd`
-2. Add `build.gradle` file to test project
+2. Add `build.gradle` file to test project (see `org.eclipse.fennec.camel.whiteboard.tests/build.gradle`)
 3. Define test requirements in `.bndrun` file using `-runrequires`
-4. Resolve bndrun using explicit gradle task
-5. Run tests with `./gradlew test`
+4. Resolve bndrun using explicit gradle task: `./gradlew resolve.test`
+5. Run tests with `./gradlew test` or `./gradlew testOSGi`
+
+**Test Bundle Configuration:**
+- Test bundles are configured via `test.bndrun` files
+- Use Apache Felix framework (`org.apache.felix.framework;version='[7.0.5,7.0.5]'`)
+- Tests run in isolated OSGi containers with all required dependencies
+- Code coverage is generated at `generated/jacoco/test.exec` for regular tests and `generated/tmp/testOSGi/generated/jacoco.exec` for OSGi tests
 
 ### Copyright and Licensing
 Always use the standard copyright header:
@@ -171,9 +186,12 @@ Contributors:
 - Generated code: `*/src-gen/**`
 - Documentation: `*/docs/*.md` (requirements, architecture, development diary)
 - Test configurations: `*/test.bndrun` 
+- Runtime configurations: `*/camel.bndrun` for Camel examples
 - Bundle configurations: `*/bnd.bnd`
 - Build configurations: `cnf/build.bnd`
-- Reference sources: `sources/camel-blueprint/` and `sources/camel-core-osgi/`
+- Maven repositories: `cnf/central.mvn`, `cnf/eclipse.mvn`, `cnf/apache.mvn` 
+- Reference sources: `sources/camel-blueprint/`, `sources/camel-core-osgi/`, `sources/osgi-test/`
+- Test reports: `*/generated/test-reports/` for regular tests, `*/generated/tmp/testOSGi/` for OSGi tests
 
 ## Current Development Status: OSGi-Native Architecture Complete ✅
 
@@ -314,3 +332,279 @@ The architecture successfully combines:
 This OSGi-native approach provides a robust, scalable foundation with 90% less complexity than custom solutions.
 
 See `org.eclipse.fennec.camel.whiteboard/docs/DEVELOPMENT_DIARY.md` for detailed implementation progress.
+
+## Apache Camel OSGi Working Example ✅ 
+
+**Status: STABLE WORKING EXAMPLE - NO MODIFICATIONS**
+
+The `org.apache.camel` project provides a stable, proven working example of Apache Camel integration with OSGi and EMF:
+
+### Key Components
+
+**Whiteboard Pattern Interfaces:**
+- **CamelComponentProvider** (`src/org/gecko/camel/example/CamelComponentProvider.java`): Service interface for contributing Camel components to CamelContext instances with priority and replacement support
+- **RouteProvider** (`src/org/gecko/camel/example/RouteProvider.java`): Service interface for contributing routes with startup order and auto-startup configuration
+- **CamelContextConfigurer** (`src/org/gecko/camel/example/CamelContextConfigurer.java`): Interface for configuring CamelContext instances
+
+**EMF Integration:**
+- **EMFTypeConverter** (`src/org/gecko/camel/example/emf/EMFTypeConverter.java`): Camel type converter for XML ↔ EObject conversions using ResourceSet
+- **EMFLoadProcessor** (`src/org/gecko/camel/example/emf/EMFLoadProcessor.java`): Processor for loading EMF objects from messages
+- **EMFSaveProcessor** (`src/org/gecko/camel/example/emf/EMFSaveProcessor.java`): Processor for saving EMF objects to messages
+
+**Working Implementation:**
+- **CamelContextStarter** (`src/org/gecko/camel/example/impl/CamelContextStarter.java`): Complete working example showing:
+  - OSGi service dependency injection (`@Reference`)
+  - ResourceSet registry binding for EMF processors
+  - Type converter registration
+  - Bundle-specific property configuration
+  - Route builder integration with RouteProvider services
+
+### Build Configuration
+
+The bundle uses a streamlined build configuration:
+- **EMF Library**: `-library: enable-emf` for automatic EMF dependencies
+- **Camel OSGi Dependencies**: Full Apache Camel 4.10+ OSGi integration including `camel-core-osgi`
+- **Dynamic Import**: `DynamicImport-Package: *` for flexible OSGi package resolution
+
+### Runtime Configuration
+
+**Camel BndRun** (`camel.bndrun`):
+- Apache Felix framework with OSGi Declarative Services
+- Complete Camel component ecosystem (timer, log, bean, direct, languages)
+- EMF and Gecko EMF OSGi integration
+- Working example runnable with Felix Gogo shell
+
+### Documentation
+
+Comprehensive integration guides available:
+- **Apache-Camel-EMF-Integration-Guide.md**: Complete pipeline configuration examples with YAML, JSON, and Java DSL
+- **CAMEL_WHITEBOARD_ARCHITECTURE.md**: Whiteboard pattern architecture details
+- **CONTEXT_STARTUP_ORDER.md**: CamelContext startup sequence documentation
+- **DYNAMIC_PIPELINE_REQUIREMENTS.md**: Dynamic pipeline requirements and patterns
+
+### Usage Examples
+
+**Run the Camel Example:**
+```bash
+# From org.apache.camel directory
+./gradlew resolve.camel
+java -jar generated/camel.jar
+```
+
+**EMF Object Processing:**
+```java
+// Automatic XML to EObject conversion in routes
+from("timer:sensor?period=10s")
+  .process("createSensorData")    // Creates EMF objects
+  .convertBodyTo(String.class)   // Uses EMFTypeConverter
+  .to("log:sensorOutput");
+```
+
+This working setup demonstrates the complete integration of Apache Camel, OSGi Declarative Services, and Eclipse EMF in a production-ready configuration pattern.
+
+## Archived Code: org.eclipse.fennec.camel.old Package ⚠️
+
+**IMPORTANT:** The `org.eclipse.fennec.camel.old` package contains archived code that should **NOT be modified**.
+
+### Archived Components (Reference Only)
+
+The complete fennec whiteboard architecture has been moved to `org.eclipse.fennec.camel.old` for reference:
+
+**Interfaces:**
+- `ConfigurationAgent` - Original configuration agent interface
+- `ConfigurationManager` - Pipeline configuration management  
+- `DependencyTracker` - Service dependency tracking
+- `PipelineInstance` - Pipeline instance management
+- `PipelineMonitoringService` - Pipeline monitoring and reporting
+- `PipelineStateReporter` - State reporting interface
+
+**Implementations:**
+- `CamelModelDependencyExtractor` - EMF model dependency extraction
+- `CentralizedDependencyTracker` - Centralized service tracking
+- `ConfigurationAgentImpl` - Configuration agent implementation
+- `ConfigurationManagerImpl` - Configuration manager implementation
+- `PipelineMonitoringServiceImpl` - Monitoring service implementation  
+- `PipelineWhiteboardInstance` - Core pipeline whiteboard instance
+
+### What Remains Active
+
+1. **EMF Pipeline Models**: All generated EMF classes in `src-gen/org/eclipse/fennec/camel/whiteboard/pipeline/`
+2. **Apache Camel Working Examples**: Stable reference implementations in `org.apache.camel` project:
+   - `CamelContextStarter` - Camel context configuration
+   - `CamelPipelineInstance` - Pipeline with dependency tracking integration
+   - ⚠️ **These are working examples - do not modify**
+3. **Test Infrastructure**: Integration tests in `org.eclipse.fennec.camel.whiteboard.tests`
+
+### Development Approach
+
+**For New Implementations:**
+- **Reference Only**: Use `CamelPipelineInstance` and `CamelContextStarter` as templates/examples
+- **Copy & Adapt**: Create new projects based on the working example patterns
+- **Build On**: Use the active EMF pipeline models which remain fully maintained
+- **Learn From**: Study the archived code for proven architectural insights
+
+**Do NOT Modify:**
+- `org.eclipse.fennec.camel.old.*` - Archived reference code
+- `org.apache.camel.*` - Stable working example code
+
+The archived implementation represents a **completed OSGi-native architecture** with proven patterns for dependency tracking, early activation, and deferred context creation.
+
+## Current Development Status & Guidelines 📋
+
+### Project Status Overview
+
+The fennec-camel workspace is now organized into stable reference implementations and active development areas:
+
+#### 🔒 **Stable Reference Code (DO NOT MODIFY)**
+
+1. **org.eclipse.fennec.camel.old** - Archived whiteboard implementation
+   - Complete dependency tracking architecture
+   - Production-ready OSGi patterns
+   - Reference for architectural insights
+   - Status: Archived for reference (2025-09-12)
+
+2. **org.apache.camel** - Working example implementation  
+   - Proven Apache Camel + OSGi + EMF integration
+   - Dependency tracking patterns demonstration
+   - Production-ready example code
+   - Status: Stable working example (no modifications)
+
+#### ✅ **Active Development Areas**
+
+1. **EMF Pipeline Models** - `org.eclipse.fennec.camel.whiteboard/src-gen/`
+   - Generated EMF classes for pipeline definitions
+   - ConsumerConfiguration, PipelineDefinition, ServiceDependency models
+   - Status: Fully active and maintained
+
+2. **Model Definitions** - `org.eclipse.fennec.camel.model/`
+   - Source EMF models (.ecore, .genmodel files)
+   - Status: Active for model evolution
+
+3. **Condition Service** - `org.eclipse.fennec.camel.whiteboard/src/`
+   - `CamelCondition` - Collects dependencies needed for OsgiCamelContext to work
+   - Publishes OSGi Condition service with `condition.id=Camel` when infrastructure ready
+   - Status: New active implementation (2025-09-12)
+
+4. **Integration Tests** - `org.eclipse.fennec.camel.whiteboard.tests/`
+   - OSGi integration testing infrastructure
+   - `CamelConditionServiceTest` - Tests for condition service behavior
+   - Status: Active for testing patterns
+
+### Development Guidelines
+
+#### For New Implementations:
+
+**✅ Recommended Approach:**
+- Create new bundles/projects inspired by the working examples
+- Copy and adapt patterns from `CamelPipelineInstance` and `CamelContextStarter`
+- Build on the active EMF pipeline models
+- Reference archived code for architectural insights
+
+**❌ Do NOT:**
+- Modify anything in `org.eclipse.fennec.camel.old.*`
+- Modify anything in `org.apache.camel.*`
+- These serve as stable references for pattern replication
+
+#### Key Development Patterns:
+
+1. **Dependency Tracking**: Use the PipelineInstance interface pattern from working examples
+2. **EMF Integration**: Follow EMF type converter patterns from CamelContextStarter
+3. **OSGi Best Practices**: Use OsgiDefaultCamelContext and proper service references
+4. **Testing**: Use Promise-based readiness patterns for integration testing
+
+### Architecture Foundation
+
+The workspace provides a solid foundation with:
+- **Proven Patterns**: Both archived and working example implementations
+- **EMF Models**: Type-safe pipeline configuration models
+- **OSGi Integration**: Battle-tested service lifecycle management
+- **Testing Infrastructure**: Working OSGi integration test patterns
+
+New developments should build upon this foundation rather than modifying the stable reference implementations.
+
+## CamelCondition Service ✅
+
+**Status: ACTIVE IMPLEMENTATION**
+
+The whiteboard project now includes a working `CamelCondition` service responsible for collecting needed dependencies to make OsgiCamelContext work. Copied and adapted from the proven `org.apache.camel` example:
+
+### OsgiCamelContext Dependency Collection
+
+**Essential Dependencies for OsgiDefaultCamelContext:**
+
+**Language Resolvers (Required):**
+- **simple** - Simple expression language for basic route expressions
+- **constant** - Constant language for static values  
+- **header** - Header language for accessing message headers
+
+**Component Resolvers (Required):**
+- **timer** - Timer component for scheduled route triggers
+- **log** - Logging component for route debugging and monitoring
+- **direct** - Direct component for synchronous in-memory routing
+- **bean** - Bean component for method invocation
+- **class** - Class component for creating objects
+- **language** - Language component for dynamic expressions
+
+**Configurer Resolvers (Required):**
+- At least one ConfigurerResolver for component configuration
+
+**OSGi Condition Publishing:**
+- **Condition ID**: "Camel" 
+- **Readiness States**: `camel=starting` → `camel=ready`
+- **Purpose**: Prevents ClassNotFoundException and initialization failures in OsgiCamelContext
+- **Aggregated Properties**: Available languages, components, and configurers
+
+### Usage Patterns
+
+**Wait for OsgiCamelContext Infrastructure:**
+```java
+// Recommended pattern before creating OsgiDefaultCamelContext
+@Reference(target = "(&(condition.id=Camel)(camel=ready))")  
+Condition camelInfrastructureReady;
+
+// Then safe to create:
+OsgiDefaultCamelContext context = new OsgiDefaultCamelContext(bundleContext);
+// All necessary resolvers will be available
+```
+
+**Wait for Specific Components:**
+```java
+// Wait for timer and log components
+@Reference(target = "(&(condition.id=Camel)(components=*timer*)(components=*log*))")
+Condition camelWithTimerAndLog;
+```
+
+**Wait for Specific Languages:**
+```java
+// Wait for simple and constant expression languages
+@Reference(target = "(&(condition.id=Camel)(languages=*simple*)(languages=*constant*))")
+Condition camelWithLanguages;
+```
+
+### Integration Testing
+
+The `CamelConditionServiceTest` demonstrates:
+- Basic service availability testing
+- Condition service registration verification  
+- Readiness state waiting patterns
+- Component and language availability filtering
+
+### Implementation Details
+
+**Location**: `org.eclipse.fennec.camel.whiteboard.impl.CamelCondition`
+**Based On**: Working example from `org.apache.camel.impl.CamelCondition`
+**Dependencies**: Already configured in `bnd.bnd` (camel-api, osgi.service.condition)
+
+### Why This Matters for OsgiCamelContext
+
+The `OsgiDefaultCamelContext` automatically discovers and integrates with OSGi services for:
+- Component resolution (finding components like timer://, log://, etc.)
+- Language resolution (parsing expressions like ${simple}, ${header.foo})
+- Configuration resolution (configuring component properties)
+
+**Without this condition service**, attempts to create `OsgiDefaultCamelContext` instances may fail with:
+- `ClassNotFoundException` for missing language resolvers
+- `ComponentNotFoundException` for missing components  
+- Incomplete component configuration capabilities
+
+**With this condition service**, other components can safely wait for the complete Camel infrastructure to be available before creating their own CamelContext instances, ensuring reliable initialization and preventing runtime failures.

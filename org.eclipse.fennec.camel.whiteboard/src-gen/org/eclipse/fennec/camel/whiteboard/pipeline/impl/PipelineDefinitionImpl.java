@@ -29,10 +29,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.fennec.camel.camelspring.RouteDefinition;
+
 import org.eclipse.fennec.camel.whiteboard.pipeline.Parameter;
 import org.eclipse.fennec.camel.whiteboard.pipeline.PipelineDefinition;
 import org.eclipse.fennec.camel.whiteboard.pipeline.PipelinePackage;
-import org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition;
 import org.eclipse.fennec.camel.whiteboard.pipeline.ServiceDependency;
 
 /**

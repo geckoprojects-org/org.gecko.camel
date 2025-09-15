@@ -21,19 +21,17 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.fennec.camel.camelspring.CamelSpringPackage;
+
 import org.eclipse.fennec.camel.whiteboard.pipeline.ConsumerConfiguration;
 import org.eclipse.fennec.camel.whiteboard.pipeline.DependencyCardinality;
-import org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition;
 import org.eclipse.fennec.camel.whiteboard.pipeline.Parameter;
 import org.eclipse.fennec.camel.whiteboard.pipeline.ParameterType;
 import org.eclipse.fennec.camel.whiteboard.pipeline.ParameterValue;
 import org.eclipse.fennec.camel.whiteboard.pipeline.PipelineDefinition;
 import org.eclipse.fennec.camel.whiteboard.pipeline.PipelineFactory;
 import org.eclipse.fennec.camel.whiteboard.pipeline.PipelinePackage;
-import org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition;
-import org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinitionFormat;
 import org.eclipse.fennec.camel.whiteboard.pipeline.ServiceDependency;
-import org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,27 +66,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass routeDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass javaDSLRouteDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass textualRouteDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass consumerConfigurationEClass = null;
 
 	/**
@@ -111,13 +88,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 	 * @generated
 	 */
 	private EEnum parameterTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum routeDefinitionFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -164,6 +134,9 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		PipelinePackageImpl thePipelinePackage = registeredPipelinePackage instanceof PipelinePackageImpl ? (PipelinePackageImpl)registeredPipelinePackage : new PipelinePackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		CamelSpringPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thePipelinePackage.createPackageContents();
@@ -385,66 +358,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getRouteDefinition() {
-		return routeDefinitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getRouteDefinition_Format() {
-		return (EAttribute)routeDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getJavaDSLRouteDefinition() {
-		return javaDSLRouteDefinitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getJavaDSLRouteDefinition_BuilderClassName() {
-		return (EAttribute)javaDSLRouteDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTextualRouteDefinition() {
-		return textualRouteDefinitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTextualRouteDefinition_Content() {
-		return (EAttribute)textualRouteDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getConsumerConfiguration() {
 		return consumerConfigurationEClass;
 	}
@@ -565,16 +478,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getRouteDefinitionFormat() {
-		return routeDefinitionFormatEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public PipelineFactory getPipelineFactory() {
 		return (PipelineFactory)getEFactoryInstance();
 	}
@@ -621,15 +524,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		createEAttribute(parameterEClass, PARAMETER__DEFAULT_VALUE);
 		createEAttribute(parameterEClass, PARAMETER__DESCRIPTION);
 
-		routeDefinitionEClass = createEClass(ROUTE_DEFINITION);
-		createEAttribute(routeDefinitionEClass, ROUTE_DEFINITION__FORMAT);
-
-		javaDSLRouteDefinitionEClass = createEClass(JAVA_DSL_ROUTE_DEFINITION);
-		createEAttribute(javaDSLRouteDefinitionEClass, JAVA_DSL_ROUTE_DEFINITION__BUILDER_CLASS_NAME);
-
-		textualRouteDefinitionEClass = createEClass(TEXTUAL_ROUTE_DEFINITION);
-		createEAttribute(textualRouteDefinitionEClass, TEXTUAL_ROUTE_DEFINITION__CONTENT);
-
 		consumerConfigurationEClass = createEClass(CONSUMER_CONFIGURATION);
 		createEAttribute(consumerConfigurationEClass, CONSUMER_CONFIGURATION__ID);
 		createEAttribute(consumerConfigurationEClass, CONSUMER_CONFIGURATION__NAME);
@@ -645,7 +539,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		// Create enums
 		dependencyCardinalityEEnum = createEEnum(DEPENDENCY_CARDINALITY);
 		parameterTypeEEnum = createEEnum(PARAMETER_TYPE);
-		routeDefinitionFormatEEnum = createEEnum(ROUTE_DEFINITION_FORMAT);
 	}
 
 	/**
@@ -671,13 +564,14 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CamelSpringPackage theCamelSpringPackage = (CamelSpringPackage)EPackage.Registry.INSTANCE.getEPackage(CamelSpringPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		javaDSLRouteDefinitionEClass.getESuperTypes().add(this.getRouteDefinition());
-		textualRouteDefinitionEClass.getESuperTypes().add(this.getRouteDefinition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(pipelineDefinitionEClass, PipelineDefinition.class, "PipelineDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -687,7 +581,7 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		initEAttribute(getPipelineDefinition_Description(), ecorePackage.getEString(), "description", null, 0, 1, PipelineDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPipelineDefinition_Dependencies(), this.getServiceDependency(), null, "dependencies", null, 0, -1, PipelineDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPipelineDefinition_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, PipelineDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPipelineDefinition_RouteDefinition(), this.getRouteDefinition(), null, "routeDefinition", null, 1, 1, PipelineDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPipelineDefinition_RouteDefinition(), theCamelSpringPackage.getRouteDefinition(), null, "routeDefinition", null, 1, 1, PipelineDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceDependencyEClass, ServiceDependency.class, "ServiceDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceDependency_ServiceInterface(), ecorePackage.getEString(), "serviceInterface", null, 1, 1, ServiceDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -702,15 +596,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		initEAttribute(getParameter_Required(), ecorePackage.getEBoolean(), "required", "false", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Description(), ecorePackage.getEString(), "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(routeDefinitionEClass, RouteDefinition.class, "RouteDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRouteDefinition_Format(), this.getRouteDefinitionFormat(), "format", null, 1, 1, RouteDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(javaDSLRouteDefinitionEClass, JavaDSLRouteDefinition.class, "JavaDSLRouteDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJavaDSLRouteDefinition_BuilderClassName(), ecorePackage.getEString(), "builderClassName", null, 1, 1, JavaDSLRouteDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(textualRouteDefinitionEClass, TextualRouteDefinition.class, "TextualRouteDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextualRouteDefinition_Content(), ecorePackage.getEString(), "content", null, 1, 1, TextualRouteDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(consumerConfigurationEClass, ConsumerConfiguration.class, "ConsumerConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConsumerConfiguration_Id(), ecorePackage.getEString(), "id", null, 1, 1, ConsumerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -735,12 +620,6 @@ public class PipelinePackageImpl extends EPackageImpl implements PipelinePackage
 		addEEnumLiteral(parameterTypeEEnum, ParameterType.BOOLEAN);
 		addEEnumLiteral(parameterTypeEEnum, ParameterType.DOUBLE);
 		addEEnumLiteral(parameterTypeEEnum, ParameterType.LONG);
-
-		initEEnum(routeDefinitionFormatEEnum, RouteDefinitionFormat.class, "RouteDefinitionFormat");
-		addEEnumLiteral(routeDefinitionFormatEEnum, RouteDefinitionFormat.JAVA_DSL);
-		addEEnumLiteral(routeDefinitionFormatEEnum, RouteDefinitionFormat.YAML);
-		addEEnumLiteral(routeDefinitionFormatEEnum, RouteDefinitionFormat.JSON);
-		addEEnumLiteral(routeDefinitionFormatEEnum, RouteDefinitionFormat.XML);
 
 		// Create resource
 		createResource(eNS_URI);

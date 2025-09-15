@@ -78,6 +78,8 @@ org.apache.camel.karaf:camel-management:4.10.5
 org.apache.camel:camel-management:jar:sources:4.10.5
 org.apache.camel.karaf:camel-management-api:4.10.5
 org.apache.camel:camel-management-api:jar:sources:4.10.5
+org.apache.camel.karaf:camel-kafka:4.10.5
+org.apache.camel:camel-kafka:jar:sources:4.10.5
 org.apache.camel.karaf:camel-support:4.10.5
 org.apache.camel:camel-support:jar:sources:4.10.5
 org.apache.camel.karaf:camel-bean:4.10.5
@@ -238,3 +240,11 @@ tools.jackson.dataformat:jackson-dataformat-yaml:3.0.0-rc6
 
 io.dropwizard.metrics:metrics-core:4.2.33
 org.apache.aries.typedevent:org.apache.aries.typedevent.bus:1.0.1
+
+org.apache.kafka:kafka-clients:3.8.0
+org.apache.kafka:kafka-clients:jar:sources:3.8.0
+com.github.luben:zstd-jni:1.5.7-4
+org.xerial.snappy:snappy-java:1.1.10.8
+org.lz4:lz4-java:1.8.0
+org.apache.servicemix.bundles:org.apache.servicemix.bundles.kafka-clients:3.9.1_1
+#org.apache.servicemix.specs:org.apache.servicemix.specs.jsr339-api-2.1:2.9.0

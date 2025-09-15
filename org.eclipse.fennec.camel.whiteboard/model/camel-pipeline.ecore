@@ -48,9 +48,10 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="routeDefinition" lowerBound="1"
-        eType="#//RouteDefinition" containment="true">
+        eType="ecore:EClass ../../org.eclipse.fennec.camel.model/model/camel-spring.ecore#//RouteDefinition"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The route configuration definition"/>
+        <details key="documentation" value="The route configuration definition using camel-spring model"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -127,45 +128,6 @@
     <eLiterals name="BOOLEAN" value="2" literal="boolean"/>
     <eLiterals name="DOUBLE" value="3" literal="double"/>
     <eLiterals name="LONG" value="4" literal="long"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RouteDefinition" abstract="true">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Base class for different route definition formats"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" lowerBound="1"
-        eType="#//RouteDefinitionFormat">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Format of this route definition"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="RouteDefinitionFormat">
-    <eLiterals name="JAVA_DSL" literal="java-dsl"/>
-    <eLiterals name="YAML" value="1" literal="yaml"/>
-    <eLiterals name="JSON" value="2" literal="json"/>
-    <eLiterals name="XML" value="3" literal="xml"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaDSLRouteDefinition" eSuperTypes="#//RouteDefinition">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Route definition using Java DSL pattern"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="builderClassName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Fully qualified class name of the RouteBuilder implementation"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TextualRouteDefinition" eSuperTypes="#//RouteDefinition">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Route definition using textual format (YAML, JSON, XML)"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Textual route definition content"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConsumerConfiguration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

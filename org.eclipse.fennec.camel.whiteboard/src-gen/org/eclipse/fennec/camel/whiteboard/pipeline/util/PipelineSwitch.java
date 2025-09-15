@@ -95,26 +95,6 @@ public class PipelineSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PipelinePackage.ROUTE_DEFINITION: {
-				RouteDefinition routeDefinition = (RouteDefinition)theEObject;
-				T result = caseRouteDefinition(routeDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PipelinePackage.JAVA_DSL_ROUTE_DEFINITION: {
-				JavaDSLRouteDefinition javaDSLRouteDefinition = (JavaDSLRouteDefinition)theEObject;
-				T result = caseJavaDSLRouteDefinition(javaDSLRouteDefinition);
-				if (result == null) result = caseRouteDefinition(javaDSLRouteDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PipelinePackage.TEXTUAL_ROUTE_DEFINITION: {
-				TextualRouteDefinition textualRouteDefinition = (TextualRouteDefinition)theEObject;
-				T result = caseTextualRouteDefinition(textualRouteDefinition);
-				if (result == null) result = caseRouteDefinition(textualRouteDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PipelinePackage.CONSUMER_CONFIGURATION: {
 				ConsumerConfiguration consumerConfiguration = (ConsumerConfiguration)theEObject;
 				T result = caseConsumerConfiguration(consumerConfiguration);
@@ -173,51 +153,6 @@ public class PipelineSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Route Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Route Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRouteDefinition(RouteDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Java DSL Route Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Java DSL Route Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJavaDSLRouteDefinition(JavaDSLRouteDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Textual Route Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Textual Route Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTextualRouteDefinition(TextualRouteDefinition object) {
 		return null;
 	}
 

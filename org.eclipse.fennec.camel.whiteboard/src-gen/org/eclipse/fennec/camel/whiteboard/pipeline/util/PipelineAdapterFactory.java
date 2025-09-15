@@ -91,18 +91,6 @@ public class PipelineAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
-			public Adapter caseRouteDefinition(RouteDefinition object) {
-				return createRouteDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseJavaDSLRouteDefinition(JavaDSLRouteDefinition object) {
-				return createJavaDSLRouteDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseTextualRouteDefinition(TextualRouteDefinition object) {
-				return createTextualRouteDefinitionAdapter();
-			}
-			@Override
 			public Adapter caseConsumerConfiguration(ConsumerConfiguration object) {
 				return createConsumerConfigurationAdapter();
 			}
@@ -169,48 +157,6 @@ public class PipelineAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition <em>Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.RouteDefinition
-	 * @generated
-	 */
-	public Adapter createRouteDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition <em>Java DSL Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.JavaDSLRouteDefinition
-	 * @generated
-	 */
-	public Adapter createJavaDSLRouteDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition <em>Textual Route Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.fennec.camel.whiteboard.pipeline.TextualRouteDefinition
-	 * @generated
-	 */
-	public Adapter createTextualRouteDefinitionAdapter() {
 		return null;
 	}
 

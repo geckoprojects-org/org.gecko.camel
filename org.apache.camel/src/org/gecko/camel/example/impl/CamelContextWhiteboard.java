@@ -57,9 +57,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Mark Hoffmann
  */
-@Component(reference = {
-		@Reference(name = "start", service = Condition.class, target = "(&(" + Condition.CONDITION_ID + "=Camel)(camel=ready))")
-})
+@Component()
 public class CamelContextWhiteboard {
     
     private static final Logger LOG = LoggerFactory.getLogger(CamelContextWhiteboard.class);
