@@ -1,4 +1,15 @@
 /**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.util;
 
@@ -19,17 +30,17 @@ import org.eclipse.fennec.demo.addressbook.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage
  * @generated
  */
-public class AddressbookSwitch<T> extends Switch<T> {
+public class AddressBookSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static AddressbookPackage modelPackage;
+	protected static AddressBookPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -37,9 +48,9 @@ public class AddressbookSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AddressbookSwitch() {
+	public AddressBookSwitch() {
 		if (modelPackage == null) {
-			modelPackage = AddressbookPackage.eINSTANCE;
+			modelPackage = AddressBookPackage.eINSTANCE;
 		}
 	}
 
@@ -66,38 +77,38 @@ public class AddressbookSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AddressbookPackage.ADDRESS_BOOK: {
+			case AddressBookPackage.ADDRESS_BOOK: {
 				AddressBook addressBook = (AddressBook)theEObject;
 				T result = caseAddressBook(addressBook);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressbookPackage.ADDRESS: {
+			case AddressBookPackage.ADDRESS: {
 				Address address = (Address)theEObject;
 				T result = caseAddress(address);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressbookPackage.BUSINESS_ADDRESS: {
+			case AddressBookPackage.BUSINESS_ADDRESS: {
 				BusinessAddress businessAddress = (BusinessAddress)theEObject;
 				T result = caseBusinessAddress(businessAddress);
 				if (result == null) result = caseAddress(businessAddress);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressbookPackage.PERSON: {
+			case AddressBookPackage.PERSON: {
 				Person person = (Person)theEObject;
 				T result = casePerson(person);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressbookPackage.CONTACT: {
+			case AddressBookPackage.CONTACT: {
 				Contact contact = (Contact)theEObject;
 				T result = caseContact(contact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AddressbookPackage.BUSINESS_CONTACT: {
+			case AddressBookPackage.BUSINESS_CONTACT: {
 				BusinessContact businessContact = (BusinessContact)theEObject;
 				T result = caseBusinessContact(businessContact);
 				if (result == null) result = caseContact(businessContact);
@@ -214,4 +225,4 @@ public class AddressbookSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //AddressbookSwitch
+} //AddressBookSwitch

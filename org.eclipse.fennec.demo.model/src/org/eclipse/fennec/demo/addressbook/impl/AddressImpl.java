@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -10,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.fennec.demo.addressbook.Address;
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,7 +115,7 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AddressbookPackage.Literals.ADDRESS;
+		return AddressBookPackage.Literals.ADDRESS;
 	}
 
 	/**
@@ -127,7 +138,7 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 		String oldStreet = street;
 		street = newStreet;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.ADDRESS__STREET, oldStreet, street));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.ADDRESS__STREET, oldStreet, street));
 	}
 
 	/**
@@ -150,7 +161,7 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 		String oldCity = city;
 		city = newCity;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.ADDRESS__CITY, oldCity, city));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.ADDRESS__CITY, oldCity, city));
 	}
 
 	/**
@@ -173,7 +184,7 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 		String oldZip = zip;
 		zip = newZip;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.ADDRESS__ZIP, oldZip, zip));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.ADDRESS__ZIP, oldZip, zip));
 	}
 
 	/**
@@ -184,11 +195,11 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS__STREET:
+			case AddressBookPackage.ADDRESS__STREET:
 				return getStreet();
-			case AddressbookPackage.ADDRESS__CITY:
+			case AddressBookPackage.ADDRESS__CITY:
 				return getCity();
-			case AddressbookPackage.ADDRESS__ZIP:
+			case AddressBookPackage.ADDRESS__ZIP:
 				return getZip();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -202,13 +213,13 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS__STREET:
+			case AddressBookPackage.ADDRESS__STREET:
 				setStreet((String)newValue);
 				return;
-			case AddressbookPackage.ADDRESS__CITY:
+			case AddressBookPackage.ADDRESS__CITY:
 				setCity((String)newValue);
 				return;
-			case AddressbookPackage.ADDRESS__ZIP:
+			case AddressBookPackage.ADDRESS__ZIP:
 				setZip((String)newValue);
 				return;
 		}
@@ -223,13 +234,13 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS__STREET:
+			case AddressBookPackage.ADDRESS__STREET:
 				setStreet(STREET_EDEFAULT);
 				return;
-			case AddressbookPackage.ADDRESS__CITY:
+			case AddressBookPackage.ADDRESS__CITY:
 				setCity(CITY_EDEFAULT);
 				return;
-			case AddressbookPackage.ADDRESS__ZIP:
+			case AddressBookPackage.ADDRESS__ZIP:
 				setZip(ZIP_EDEFAULT);
 				return;
 		}
@@ -244,11 +255,11 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS__STREET:
+			case AddressBookPackage.ADDRESS__STREET:
 				return STREET_EDEFAULT == null ? street != null : !STREET_EDEFAULT.equals(street);
-			case AddressbookPackage.ADDRESS__CITY:
+			case AddressBookPackage.ADDRESS__CITY:
 				return CITY_EDEFAULT == null ? city != null : !CITY_EDEFAULT.equals(city);
-			case AddressbookPackage.ADDRESS__ZIP:
+			case AddressBookPackage.ADDRESS__ZIP:
 				return ZIP_EDEFAULT == null ? zip != null : !ZIP_EDEFAULT.equals(zip);
 		}
 		return super.eIsSet(featureID);

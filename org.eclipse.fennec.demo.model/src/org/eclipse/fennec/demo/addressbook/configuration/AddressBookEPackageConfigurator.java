@@ -1,11 +1,22 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.configuration;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 
 import org.gecko.emf.osgi.configurator.EPackageConfigurator;
 
@@ -19,11 +30,11 @@ import org.gecko.emf.osgi.constants.EMFNamespaces;
  * @see EPackageConfigurator
  * @generated
  */
-public class AddressbookEPackageConfigurator implements EPackageConfigurator {
+public class AddressBookEPackageConfigurator implements EPackageConfigurator {
 	
-	private AddressbookPackage ePackage;
+	private AddressBookPackage ePackage;
 
-	protected AddressbookEPackageConfigurator(AddressbookPackage ePackage){
+	protected AddressBookEPackageConfigurator(AddressBookPackage ePackage){
 		this.ePackage = ePackage;
 	}
 	
@@ -34,7 +45,7 @@ public class AddressbookEPackageConfigurator implements EPackageConfigurator {
 	 */
 	@Override
 	public void configureEPackage(org.eclipse.emf.ecore.EPackage.Registry registry) {
-		registry.put(AddressbookPackage.eNS_URI, ePackage);
+		registry.put(AddressBookPackage.eNS_URI, ePackage);
 	}
 	
 	/**
@@ -44,7 +55,7 @@ public class AddressbookEPackageConfigurator implements EPackageConfigurator {
 	 */
 	@Override
 	public void unconfigureEPackage(org.eclipse.emf.ecore.EPackage.Registry registry) {
-		registry.remove(AddressbookPackage.eNS_URI);
+		registry.remove(AddressBookPackage.eNS_URI);
 	}
 	
 	/**
@@ -53,8 +64,8 @@ public class AddressbookEPackageConfigurator implements EPackageConfigurator {
 	 */
 	public Map<String, Object> getServiceProperties() {
 		Map<String, Object> properties = new HashMap<String, Object>();
-		properties.put(EMFNamespaces.EMF_MODEL_NAME, AddressbookPackage.eNAME);
-		properties.put(EMFNamespaces.EMF_MODEL_NSURI, AddressbookPackage.eNS_URI);
+		properties.put(EMFNamespaces.EMF_MODEL_NAME, AddressBookPackage.eNAME);
+		properties.put(EMFNamespaces.EMF_MODEL_NSURI, AddressBookPackage.eNS_URI);
 		properties.put(EMFNamespaces.EMF_MODEL_FILE_EXT, "adr");
 		properties.put(EMFNamespaces.EMF_MODEL_VERSION, "1.0");
 		return properties;

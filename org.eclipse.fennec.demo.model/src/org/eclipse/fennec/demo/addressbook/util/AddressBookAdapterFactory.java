@@ -1,4 +1,15 @@
 /**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.util;
 
@@ -16,17 +27,17 @@ import org.eclipse.fennec.demo.addressbook.*;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage
  * @generated
  */
-public class AddressbookAdapterFactory extends AdapterFactoryImpl {
+public class AddressBookAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static AddressbookPackage modelPackage;
+	protected static AddressBookPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +45,9 @@ public class AddressbookAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AddressbookAdapterFactory() {
+	public AddressBookAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = AddressbookPackage.eINSTANCE;
+			modelPackage = AddressBookPackage.eINSTANCE;
 		}
 	}
 
@@ -65,8 +76,8 @@ public class AddressbookAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AddressbookSwitch<Adapter> modelSwitch =
-		new AddressbookSwitch<Adapter>() {
+	protected AddressBookSwitch<Adapter> modelSwitch =
+		new AddressBookSwitch<Adapter>() {
 			@Override
 			public Adapter caseAddressBook(AddressBook object) {
 				return createAddressBookAdapter();
@@ -207,4 +218,4 @@ public class AddressbookAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //AddressbookAdapterFactory
+} //AddressBookAdapterFactory

@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -17,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.eclipse.fennec.demo.addressbook.BusinessAddress;
 import org.eclipse.fennec.demo.addressbook.Person;
 
@@ -124,7 +135,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AddressbookPackage.Literals.BUSINESS_ADDRESS;
+		return AddressBookPackage.Literals.BUSINESS_ADDRESS;
 	}
 
 	/**
@@ -147,7 +158,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 		String oldResponsiblePerson = responsiblePerson;
 		responsiblePerson = newResponsiblePerson;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON, oldResponsiblePerson, responsiblePerson));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON, oldResponsiblePerson, responsiblePerson));
 	}
 
 	/**
@@ -170,7 +181,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 		String oldBuilding = building;
 		building = newBuilding;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.BUSINESS_ADDRESS__BUILDING, oldBuilding, building));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.BUSINESS_ADDRESS__BUILDING, oldBuilding, building));
 	}
 
 	/**
@@ -193,7 +204,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 		String oldCompanyName = companyName;
 		companyName = newCompanyName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.BUSINESS_ADDRESS__COMPANY_NAME, oldCompanyName, companyName));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.BUSINESS_ADDRESS__COMPANY_NAME, oldCompanyName, companyName));
 	}
 
 	/**
@@ -204,7 +215,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public EList<Person> getEmployees() {
 		if (employees == null) {
-			employees = new EObjectWithInverseResolvingEList<Person>(Person.class, this, AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES, AddressbookPackage.PERSON__BUSINESS_ADDRESS);
+			employees = new EObjectWithInverseResolvingEList<Person>(Person.class, this, AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES, AddressBookPackage.PERSON__BUSINESS_ADDRESS);
 		}
 		return employees;
 	}
@@ -218,7 +229,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEmployees()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -232,7 +243,7 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				return ((InternalEList<?>)getEmployees()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -246,13 +257,13 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
+			case AddressBookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
 				return getResponsiblePerson();
-			case AddressbookPackage.BUSINESS_ADDRESS__BUILDING:
+			case AddressBookPackage.BUSINESS_ADDRESS__BUILDING:
 				return getBuilding();
-			case AddressbookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
+			case AddressBookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
 				return getCompanyName();
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				return getEmployees();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -267,16 +278,16 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
+			case AddressBookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
 				setResponsiblePerson((String)newValue);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__BUILDING:
+			case AddressBookPackage.BUSINESS_ADDRESS__BUILDING:
 				setBuilding((String)newValue);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
+			case AddressBookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
 				setCompanyName((String)newValue);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				getEmployees().clear();
 				getEmployees().addAll((Collection<? extends Person>)newValue);
 				return;
@@ -292,16 +303,16 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
+			case AddressBookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
 				setResponsiblePerson(RESPONSIBLE_PERSON_EDEFAULT);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__BUILDING:
+			case AddressBookPackage.BUSINESS_ADDRESS__BUILDING:
 				setBuilding(BUILDING_EDEFAULT);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
+			case AddressBookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
 				setCompanyName(COMPANY_NAME_EDEFAULT);
 				return;
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				getEmployees().clear();
 				return;
 		}
@@ -316,13 +327,13 @@ public class BusinessAddressImpl extends AddressImpl implements BusinessAddress 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
+			case AddressBookPackage.BUSINESS_ADDRESS__RESPONSIBLE_PERSON:
 				return RESPONSIBLE_PERSON_EDEFAULT == null ? responsiblePerson != null : !RESPONSIBLE_PERSON_EDEFAULT.equals(responsiblePerson);
-			case AddressbookPackage.BUSINESS_ADDRESS__BUILDING:
+			case AddressBookPackage.BUSINESS_ADDRESS__BUILDING:
 				return BUILDING_EDEFAULT == null ? building != null : !BUILDING_EDEFAULT.equals(building);
-			case AddressbookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
+			case AddressBookPackage.BUSINESS_ADDRESS__COMPANY_NAME:
 				return COMPANY_NAME_EDEFAULT == null ? companyName != null : !COMPANY_NAME_EDEFAULT.equals(companyName);
-			case AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES:
+			case AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES:
 				return employees != null && !employees.isEmpty();
 		}
 		return super.eIsSet(featureID);

@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.util;
 
@@ -11,7 +22,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 
 import org.gecko.emf.osgi.constants.EMFNamespaces;
 
@@ -19,17 +30,17 @@ import org.gecko.emf.osgi.constants.EMFNamespaces;
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see org.eclipse.fennec.demo.addressbook.util.AddressbookResourceImpl
+ * @see org.eclipse.fennec.demo.addressbook.util.AddressBookResourceImpl
  * @generated
  */
-public class AddressbookResourceFactoryImpl extends ResourceFactoryImpl {
+public class AddressBookResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AddressbookResourceFactoryImpl() {
+	public AddressBookResourceFactoryImpl() {
 		super();
 	}
 
@@ -41,7 +52,7 @@ public class AddressbookResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new AddressbookResourceImpl(uri);
+		Resource result = new AddressBookResourceImpl(uri);
 		return result;
 	}
 
@@ -51,10 +62,10 @@ public class AddressbookResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	public Map<String, Object> getServiceProperties() {
 		Map<String, Object> properties = new HashMap<String, Object>();
-		properties.put(EMFNamespaces.EMF_CONFIGURATOR_NAME, AddressbookPackage.eNAME);
+		properties.put(EMFNamespaces.EMF_CONFIGURATOR_NAME, AddressBookPackage.eNAME);
 		properties.put(EMFNamespaces.EMF_MODEL_FILE_EXT, "adr");
 		properties.put(EMFNamespaces.EMF_MODEL_VERSION, "1.0");
 		return properties;
 	}
 
-} //AddressbookResourceFactoryImpl
+} //AddressBookResourceFactoryImpl

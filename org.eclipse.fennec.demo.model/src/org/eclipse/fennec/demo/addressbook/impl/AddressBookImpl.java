@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -20,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.fennec.demo.addressbook.Address;
 import org.eclipse.fennec.demo.addressbook.AddressBook;
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.eclipse.fennec.demo.addressbook.Person;
 
 /**
@@ -95,7 +106,7 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AddressbookPackage.Literals.ADDRESS_BOOK;
+		return AddressBookPackage.Literals.ADDRESS_BOOK;
 	}
 
 	/**
@@ -118,7 +129,7 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 		String oldAddressBookId = addressBookId;
 		addressBookId = newAddressBookId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID, oldAddressBookId, addressBookId));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID, oldAddressBookId, addressBookId));
 	}
 
 	/**
@@ -129,7 +140,7 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public EList<Address> getAddresses() {
 		if (addresses == null) {
-			addresses = new EObjectContainmentEList<Address>(Address.class, this, AddressbookPackage.ADDRESS_BOOK__ADDRESSES);
+			addresses = new EObjectContainmentEList<Address>(Address.class, this, AddressBookPackage.ADDRESS_BOOK__ADDRESSES);
 		}
 		return addresses;
 	}
@@ -142,7 +153,7 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public EList<Person> getPersons() {
 		if (persons == null) {
-			persons = new EObjectContainmentEList<Person>(Person.class, this, AddressbookPackage.ADDRESS_BOOK__PERSONS);
+			persons = new EObjectContainmentEList<Person>(Person.class, this, AddressBookPackage.ADDRESS_BOOK__PERSONS);
 		}
 		return persons;
 	}
@@ -155,9 +166,9 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESSES:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESSES:
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
-			case AddressbookPackage.ADDRESS_BOOK__PERSONS:
+			case AddressBookPackage.ADDRESS_BOOK__PERSONS:
 				return ((InternalEList<?>)getPersons()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -171,11 +182,11 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
 				return getAddressBookId();
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESSES:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESSES:
 				return getAddresses();
-			case AddressbookPackage.ADDRESS_BOOK__PERSONS:
+			case AddressBookPackage.ADDRESS_BOOK__PERSONS:
 				return getPersons();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -190,14 +201,14 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
 				setAddressBookId((String)newValue);
 				return;
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESSES:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESSES:
 				getAddresses().clear();
 				getAddresses().addAll((Collection<? extends Address>)newValue);
 				return;
-			case AddressbookPackage.ADDRESS_BOOK__PERSONS:
+			case AddressBookPackage.ADDRESS_BOOK__PERSONS:
 				getPersons().clear();
 				getPersons().addAll((Collection<? extends Person>)newValue);
 				return;
@@ -213,13 +224,13 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
 				setAddressBookId(ADDRESS_BOOK_ID_EDEFAULT);
 				return;
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESSES:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESSES:
 				getAddresses().clear();
 				return;
-			case AddressbookPackage.ADDRESS_BOOK__PERSONS:
+			case AddressBookPackage.ADDRESS_BOOK__PERSONS:
 				getPersons().clear();
 				return;
 		}
@@ -234,11 +245,11 @@ public class AddressBookImpl extends MinimalEObjectImpl.Container implements Add
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESS_BOOK_ID:
 				return ADDRESS_BOOK_ID_EDEFAULT == null ? addressBookId != null : !ADDRESS_BOOK_ID_EDEFAULT.equals(addressBookId);
-			case AddressbookPackage.ADDRESS_BOOK__ADDRESSES:
+			case AddressBookPackage.ADDRESS_BOOK__ADDRESSES:
 				return addresses != null && !addresses.isEmpty();
-			case AddressbookPackage.ADDRESS_BOOK__PERSONS:
+			case AddressBookPackage.ADDRESS_BOOK__PERSONS:
 				return persons != null && !persons.isEmpty();
 		}
 		return super.eIsSet(featureID);

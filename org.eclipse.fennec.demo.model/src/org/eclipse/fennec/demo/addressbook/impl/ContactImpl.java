@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -9,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.eclipse.fennec.demo.addressbook.Contact;
 import org.eclipse.fennec.demo.addressbook.ContactType;
 
@@ -84,7 +95,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AddressbookPackage.Literals.CONTACT;
+		return AddressBookPackage.Literals.CONTACT;
 	}
 
 	/**
@@ -107,7 +118,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		ContactType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.CONTACT__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.CONTACT__TYPE, oldType, type));
 	}
 
 	/**
@@ -130,7 +141,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.CONTACT__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.CONTACT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -141,9 +152,9 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AddressbookPackage.CONTACT__TYPE:
+			case AddressBookPackage.CONTACT__TYPE:
 				return getType();
-			case AddressbookPackage.CONTACT__VALUE:
+			case AddressBookPackage.CONTACT__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -157,10 +168,10 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AddressbookPackage.CONTACT__TYPE:
+			case AddressBookPackage.CONTACT__TYPE:
 				setType((ContactType)newValue);
 				return;
-			case AddressbookPackage.CONTACT__VALUE:
+			case AddressBookPackage.CONTACT__VALUE:
 				setValue((String)newValue);
 				return;
 		}
@@ -175,10 +186,10 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.CONTACT__TYPE:
+			case AddressBookPackage.CONTACT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case AddressbookPackage.CONTACT__VALUE:
+			case AddressBookPackage.CONTACT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -193,9 +204,9 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.CONTACT__TYPE:
+			case AddressBookPackage.CONTACT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case AddressbookPackage.CONTACT__VALUE:
+			case AddressBookPackage.CONTACT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);

@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook;
 
@@ -27,7 +38,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.demo.addressbook.Person#getContacts <em>Contacts</em>}</li>
  * </ul>
  *
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson()
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson()
  * @model
  * @generated
  */
@@ -39,7 +50,7 @@ public interface Person extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Name</em>' attribute.
 	 * @see #setFirstName(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_FirstName()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_FirstName()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -61,7 +72,7 @@ public interface Person extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Name</em>' attribute.
 	 * @see #setLastName(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_LastName()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_LastName()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -83,7 +94,7 @@ public interface Person extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Birth Date</em>' attribute.
 	 * @see #setBirthDate(Date)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_BirthDate()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_BirthDate()
 	 * @model
 	 * @generated
 	 */
@@ -105,7 +116,7 @@ public interface Person extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Address</em>' reference.
 	 * @see #setAddress(Address)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_Address()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_Address()
 	 * @model keys="street city zip" required="true"
 	 * @generated
 	 */
@@ -128,7 +139,7 @@ public interface Person extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Business Address</em>' reference.
 	 * @see #setBusinessAddress(BusinessAddress)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_BusinessAddress()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_BusinessAddress()
 	 * @see org.eclipse.fennec.demo.addressbook.BusinessAddress#getEmployees
 	 * @model opposite="employees" keys="street city zip"
 	 * @generated
@@ -151,7 +162,7 @@ public interface Person extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contacts</em>' containment reference list.
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getPerson_Contacts()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getPerson_Contacts()
 	 * @model containment="true"
 	 * @generated
 	 */

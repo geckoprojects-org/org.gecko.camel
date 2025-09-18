@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook;
 
@@ -21,7 +32,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.demo.addressbook.BusinessAddress#getEmployees <em>Employees</em>}</li>
  * </ul>
  *
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getBusinessAddress()
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getBusinessAddress()
  * @model
  * @generated
  */
@@ -33,7 +44,7 @@ public interface BusinessAddress extends Address {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Responsible Person</em>' attribute.
 	 * @see #setResponsiblePerson(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getBusinessAddress_ResponsiblePerson()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getBusinessAddress_ResponsiblePerson()
 	 * @model
 	 * @generated
 	 */
@@ -55,7 +66,7 @@ public interface BusinessAddress extends Address {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Building</em>' attribute.
 	 * @see #setBuilding(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getBusinessAddress_Building()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getBusinessAddress_Building()
 	 * @model
 	 * @generated
 	 */
@@ -77,7 +88,7 @@ public interface BusinessAddress extends Address {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Company Name</em>' attribute.
 	 * @see #setCompanyName(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getBusinessAddress_CompanyName()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getBusinessAddress_CompanyName()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -100,7 +111,7 @@ public interface BusinessAddress extends Address {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Employees</em>' reference list.
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getBusinessAddress_Employees()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getBusinessAddress_Employees()
 	 * @see org.eclipse.fennec.demo.addressbook.Person#getBusinessAddress
 	 * @model opposite="businessAddress" keys="firstName lastName birthDate"
 	 * @generated

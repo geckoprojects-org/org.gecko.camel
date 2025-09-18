@@ -1,4 +1,15 @@
 /**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -19,24 +30,24 @@ import org.eclipse.fennec.demo.addressbook.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookFactory {
+public class AddressBookFactoryImpl extends EFactoryImpl implements AddressBookFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static AddressbookFactory init() {
+	public static AddressBookFactory init() {
 		try {
-			AddressbookFactory theAddressbookFactory = (AddressbookFactory)EPackage.Registry.INSTANCE.getEFactory(AddressbookPackage.eNS_URI);
-			if (theAddressbookFactory != null) {
-				return theAddressbookFactory;
+			AddressBookFactory theAddressBookFactory = (AddressBookFactory)EPackage.Registry.INSTANCE.getEFactory(AddressBookPackage.eNS_URI);
+			if (theAddressBookFactory != null) {
+				return theAddressBookFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new AddressbookFactoryImpl();
+		return new AddressBookFactoryImpl();
 	}
 
 	/**
@@ -45,7 +56,7 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AddressbookFactoryImpl() {
+	public AddressBookFactoryImpl() {
 		super();
 	}
 
@@ -57,12 +68,12 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AddressbookPackage.ADDRESS_BOOK: return createAddressBook();
-			case AddressbookPackage.ADDRESS: return createAddress();
-			case AddressbookPackage.BUSINESS_ADDRESS: return createBusinessAddress();
-			case AddressbookPackage.PERSON: return createPerson();
-			case AddressbookPackage.CONTACT: return createContact();
-			case AddressbookPackage.BUSINESS_CONTACT: return createBusinessContact();
+			case AddressBookPackage.ADDRESS_BOOK: return createAddressBook();
+			case AddressBookPackage.ADDRESS: return createAddress();
+			case AddressBookPackage.BUSINESS_ADDRESS: return createBusinessAddress();
+			case AddressBookPackage.PERSON: return createPerson();
+			case AddressBookPackage.CONTACT: return createContact();
+			case AddressBookPackage.BUSINESS_CONTACT: return createBusinessContact();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,7 +87,7 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AddressbookPackage.CONTACT_TYPE:
+			case AddressBookPackage.CONTACT_TYPE:
 				return createContactTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -91,7 +102,7 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AddressbookPackage.CONTACT_TYPE:
+			case AddressBookPackage.CONTACT_TYPE:
 				return convertContactTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -190,8 +201,8 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	 * @generated
 	 */
 	@Override
-	public AddressbookPackage getAddressbookPackage() {
-		return (AddressbookPackage)getEPackage();
+	public AddressBookPackage getAddressBookPackage() {
+		return (AddressBookPackage)getEPackage();
 	}
 
 	/**
@@ -201,8 +212,8 @@ public class AddressbookFactoryImpl extends EFactoryImpl implements AddressbookF
 	 * @generated
 	 */
 	@Deprecated
-	public static AddressbookPackage getPackage() {
-		return AddressbookPackage.eINSTANCE;
+	public static AddressBookPackage getPackage() {
+		return AddressBookPackage.eINSTANCE;
 	}
 
-} //AddressbookFactoryImpl
+} //AddressBookFactoryImpl

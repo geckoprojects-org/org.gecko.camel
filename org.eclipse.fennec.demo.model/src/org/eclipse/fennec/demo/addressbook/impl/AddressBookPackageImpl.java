@@ -1,4 +1,15 @@
 /**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -12,8 +23,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.fennec.demo.addressbook.Address;
 import org.eclipse.fennec.demo.addressbook.AddressBook;
-import org.eclipse.fennec.demo.addressbook.AddressbookFactory;
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookFactory;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.eclipse.fennec.demo.addressbook.BusinessAddress;
 import org.eclipse.fennec.demo.addressbook.BusinessContact;
 import org.eclipse.fennec.demo.addressbook.Contact;
@@ -26,7 +37,7 @@ import org.eclipse.fennec.demo.addressbook.Person;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AddressbookPackageImpl extends EPackageImpl implements AddressbookPackage {
+public class AddressBookPackageImpl extends EPackageImpl implements AddressBookPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,12 +98,12 @@ public class AddressbookPackageImpl extends EPackageImpl implements AddressbookP
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#eNS_URI
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private AddressbookPackageImpl() {
-		super(eNS_URI, AddressbookFactory.eINSTANCE);
+	private AddressBookPackageImpl() {
+		super(eNS_URI, AddressBookFactory.eINSTANCE);
 	}
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,7 +115,7 @@ public class AddressbookPackageImpl extends EPackageImpl implements AddressbookP
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 *
-	 * <p>This method is used to initialize {@link AddressbookPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link AddressBookPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,27 +124,27 @@ public class AddressbookPackageImpl extends EPackageImpl implements AddressbookP
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static AddressbookPackage init() {
-		if (isInited) return (AddressbookPackage)EPackage.Registry.INSTANCE.getEPackage(AddressbookPackage.eNS_URI);
+	public static AddressBookPackage init() {
+		if (isInited) return (AddressBookPackage)EPackage.Registry.INSTANCE.getEPackage(AddressBookPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredAddressbookPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		AddressbookPackageImpl theAddressbookPackage = registeredAddressbookPackage instanceof AddressbookPackageImpl ? (AddressbookPackageImpl)registeredAddressbookPackage : new AddressbookPackageImpl();
+		Object registeredAddressBookPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AddressBookPackageImpl theAddressBookPackage = registeredAddressBookPackage instanceof AddressBookPackageImpl ? (AddressBookPackageImpl)registeredAddressBookPackage : new AddressBookPackageImpl();
 
 		isInited = true;
 
 		// Create package meta-data objects
-		theAddressbookPackage.createPackageContents();
+		theAddressBookPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theAddressbookPackage.initializePackageContents();
+		theAddressBookPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theAddressbookPackage.freeze();
+		theAddressBookPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(AddressbookPackage.eNS_URI, theAddressbookPackage);
-		return theAddressbookPackage;
+		EPackage.Registry.INSTANCE.put(AddressBookPackage.eNS_URI, theAddressBookPackage);
+		return theAddressBookPackage;
 	}
 
 	/**
@@ -392,8 +403,8 @@ public class AddressbookPackageImpl extends EPackageImpl implements AddressbookP
 	 * @generated
 	 */
 	@Override
-	public AddressbookFactory getAddressbookFactory() {
-		return (AddressbookFactory)getEFactoryInstance();
+	public AddressBookFactory getAddressBookFactory() {
+		return (AddressBookFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -555,4 +566,4 @@ public class AddressbookPackageImpl extends EPackageImpl implements AddressbookP
 		   });
 	}
 
-} //AddressbookPackageImpl
+} //AddressBookPackageImpl

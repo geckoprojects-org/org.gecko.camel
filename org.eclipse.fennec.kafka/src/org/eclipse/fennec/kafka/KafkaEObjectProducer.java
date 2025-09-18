@@ -1,3 +1,16 @@
+/**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved. 
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *     Data In Motion - initial API and implementation
+ */
 package org.eclipse.fennec.kafka;
 
 import java.time.Duration;
@@ -14,7 +27,7 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.fennec.demo.addressbook.AddressbookFactory;
+import org.eclipse.fennec.demo.addressbook.AddressBookFactory;
 import org.eclipse.fennec.demo.addressbook.Contact;
 import org.eclipse.fennec.demo.addressbook.ContactType;
 import org.eclipse.fennec.demo.addressbook.Person;
@@ -22,7 +35,6 @@ import org.eclipse.fennec.kafka.emf.KafkaEMFConstants;
 import org.eclipse.fennec.kafka.emf.KafkaEObjectSerializer;
 import org.gecko.emf.osgi.annotation.require.RequireEMF;
 import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 
@@ -32,7 +44,7 @@ public class KafkaEObjectProducer {
     
     private KafkaProducer<String, EObject> producer;
     @Reference
-    private AddressbookFactory factory;
+    private AddressBookFactory factory;
     @Reference
     private ResourceSet resourceSet;
     

@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.impl;
 
@@ -20,7 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.fennec.demo.addressbook.Address;
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.eclipse.fennec.demo.addressbook.BusinessAddress;
 import org.eclipse.fennec.demo.addressbook.Contact;
 import org.eclipse.fennec.demo.addressbook.Person;
@@ -150,7 +161,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AddressbookPackage.Literals.PERSON;
+		return AddressBookPackage.Literals.PERSON;
 	}
 
 	/**
@@ -173,7 +184,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		String oldFirstName = firstName;
 		firstName = newFirstName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__FIRST_NAME, oldFirstName, firstName));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__FIRST_NAME, oldFirstName, firstName));
 	}
 
 	/**
@@ -196,7 +207,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		String oldLastName = lastName;
 		lastName = newLastName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__LAST_NAME, oldLastName, lastName));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__LAST_NAME, oldLastName, lastName));
 	}
 
 	/**
@@ -219,7 +230,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		Date oldBirthDate = birthDate;
 		birthDate = newBirthDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__BIRTH_DATE, oldBirthDate, birthDate));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__BIRTH_DATE, oldBirthDate, birthDate));
 	}
 
 	/**
@@ -234,7 +245,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			address = (Address)eResolveProxy(oldAddress);
 			if (address != oldAddress) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AddressbookPackage.PERSON__ADDRESS, oldAddress, address));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AddressBookPackage.PERSON__ADDRESS, oldAddress, address));
 			}
 		}
 		return address;
@@ -259,7 +270,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		Address oldAddress = address;
 		address = newAddress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__ADDRESS, oldAddress, address));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__ADDRESS, oldAddress, address));
 	}
 
 	/**
@@ -274,7 +285,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			businessAddress = (BusinessAddress)eResolveProxy(oldBusinessAddress);
 			if (businessAddress != oldBusinessAddress) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AddressbookPackage.PERSON__BUSINESS_ADDRESS, oldBusinessAddress, businessAddress));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AddressBookPackage.PERSON__BUSINESS_ADDRESS, oldBusinessAddress, businessAddress));
 			}
 		}
 		return businessAddress;
@@ -298,7 +309,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		BusinessAddress oldBusinessAddress = businessAddress;
 		businessAddress = newBusinessAddress;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__BUSINESS_ADDRESS, oldBusinessAddress, newBusinessAddress);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__BUSINESS_ADDRESS, oldBusinessAddress, newBusinessAddress);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -314,14 +325,14 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		if (newBusinessAddress != businessAddress) {
 			NotificationChain msgs = null;
 			if (businessAddress != null)
-				msgs = ((InternalEObject)businessAddress).eInverseRemove(this, AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
+				msgs = ((InternalEObject)businessAddress).eInverseRemove(this, AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
 			if (newBusinessAddress != null)
-				msgs = ((InternalEObject)newBusinessAddress).eInverseAdd(this, AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
+				msgs = ((InternalEObject)newBusinessAddress).eInverseAdd(this, AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
 			msgs = basicSetBusinessAddress(newBusinessAddress, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AddressbookPackage.PERSON__BUSINESS_ADDRESS, newBusinessAddress, newBusinessAddress));
+			eNotify(new ENotificationImpl(this, Notification.SET, AddressBookPackage.PERSON__BUSINESS_ADDRESS, newBusinessAddress, newBusinessAddress));
 	}
 
 	/**
@@ -332,7 +343,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public EList<Contact> getContacts() {
 		if (contacts == null) {
-			contacts = new EObjectContainmentEList<Contact>(Contact.class, this, AddressbookPackage.PERSON__CONTACTS);
+			contacts = new EObjectContainmentEList<Contact>(Contact.class, this, AddressBookPackage.PERSON__CONTACTS);
 		}
 		return contacts;
 	}
@@ -345,9 +356,9 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				if (businessAddress != null)
-					msgs = ((InternalEObject)businessAddress).eInverseRemove(this, AddressbookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
+					msgs = ((InternalEObject)businessAddress).eInverseRemove(this, AddressBookPackage.BUSINESS_ADDRESS__EMPLOYEES, BusinessAddress.class, msgs);
 				return basicSetBusinessAddress((BusinessAddress)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -361,9 +372,9 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				return basicSetBusinessAddress(null, msgs);
-			case AddressbookPackage.PERSON__CONTACTS:
+			case AddressBookPackage.PERSON__CONTACTS:
 				return ((InternalEList<?>)getContacts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -377,19 +388,19 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__FIRST_NAME:
+			case AddressBookPackage.PERSON__FIRST_NAME:
 				return getFirstName();
-			case AddressbookPackage.PERSON__LAST_NAME:
+			case AddressBookPackage.PERSON__LAST_NAME:
 				return getLastName();
-			case AddressbookPackage.PERSON__BIRTH_DATE:
+			case AddressBookPackage.PERSON__BIRTH_DATE:
 				return getBirthDate();
-			case AddressbookPackage.PERSON__ADDRESS:
+			case AddressBookPackage.PERSON__ADDRESS:
 				if (resolve) return getAddress();
 				return basicGetAddress();
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				if (resolve) return getBusinessAddress();
 				return basicGetBusinessAddress();
-			case AddressbookPackage.PERSON__CONTACTS:
+			case AddressBookPackage.PERSON__CONTACTS:
 				return getContacts();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -404,22 +415,22 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__FIRST_NAME:
+			case AddressBookPackage.PERSON__FIRST_NAME:
 				setFirstName((String)newValue);
 				return;
-			case AddressbookPackage.PERSON__LAST_NAME:
+			case AddressBookPackage.PERSON__LAST_NAME:
 				setLastName((String)newValue);
 				return;
-			case AddressbookPackage.PERSON__BIRTH_DATE:
+			case AddressBookPackage.PERSON__BIRTH_DATE:
 				setBirthDate((Date)newValue);
 				return;
-			case AddressbookPackage.PERSON__ADDRESS:
+			case AddressBookPackage.PERSON__ADDRESS:
 				setAddress((Address)newValue);
 				return;
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				setBusinessAddress((BusinessAddress)newValue);
 				return;
-			case AddressbookPackage.PERSON__CONTACTS:
+			case AddressBookPackage.PERSON__CONTACTS:
 				getContacts().clear();
 				getContacts().addAll((Collection<? extends Contact>)newValue);
 				return;
@@ -435,22 +446,22 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__FIRST_NAME:
+			case AddressBookPackage.PERSON__FIRST_NAME:
 				setFirstName(FIRST_NAME_EDEFAULT);
 				return;
-			case AddressbookPackage.PERSON__LAST_NAME:
+			case AddressBookPackage.PERSON__LAST_NAME:
 				setLastName(LAST_NAME_EDEFAULT);
 				return;
-			case AddressbookPackage.PERSON__BIRTH_DATE:
+			case AddressBookPackage.PERSON__BIRTH_DATE:
 				setBirthDate(BIRTH_DATE_EDEFAULT);
 				return;
-			case AddressbookPackage.PERSON__ADDRESS:
+			case AddressBookPackage.PERSON__ADDRESS:
 				setAddress((Address)null);
 				return;
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				setBusinessAddress((BusinessAddress)null);
 				return;
-			case AddressbookPackage.PERSON__CONTACTS:
+			case AddressBookPackage.PERSON__CONTACTS:
 				getContacts().clear();
 				return;
 		}
@@ -465,17 +476,17 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AddressbookPackage.PERSON__FIRST_NAME:
+			case AddressBookPackage.PERSON__FIRST_NAME:
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
-			case AddressbookPackage.PERSON__LAST_NAME:
+			case AddressBookPackage.PERSON__LAST_NAME:
 				return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
-			case AddressbookPackage.PERSON__BIRTH_DATE:
+			case AddressBookPackage.PERSON__BIRTH_DATE:
 				return BIRTH_DATE_EDEFAULT == null ? birthDate != null : !BIRTH_DATE_EDEFAULT.equals(birthDate);
-			case AddressbookPackage.PERSON__ADDRESS:
+			case AddressBookPackage.PERSON__ADDRESS:
 				return address != null;
-			case AddressbookPackage.PERSON__BUSINESS_ADDRESS:
+			case AddressBookPackage.PERSON__BUSINESS_ADDRESS:
 				return businessAddress != null;
-			case AddressbookPackage.PERSON__CONTACTS:
+			case AddressBookPackage.PERSON__CONTACTS:
 				return contacts != null && !contacts.isEmpty();
 		}
 		return super.eIsSet(featureID);

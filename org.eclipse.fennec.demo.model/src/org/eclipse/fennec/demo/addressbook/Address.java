@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook;
 
@@ -20,7 +31,7 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>{@link org.eclipse.fennec.demo.addressbook.Address#getZip <em>Zip</em>}</li>
  * </ul>
  *
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getAddress()
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getAddress()
  * @model
  * @generated
  */
@@ -32,7 +43,7 @@ public interface Address extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Street</em>' attribute.
 	 * @see #setStreet(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getAddress_Street()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getAddress_Street()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -54,7 +65,7 @@ public interface Address extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>City</em>' attribute.
 	 * @see #setCity(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getAddress_City()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getAddress_City()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -76,7 +87,7 @@ public interface Address extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Zip</em>' attribute.
 	 * @see #setZip(String)
-	 * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage#getAddress_Zip()
+	 * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage#getAddress_Zip()
 	 * @model required="true"
 	 * @generated
 	 */

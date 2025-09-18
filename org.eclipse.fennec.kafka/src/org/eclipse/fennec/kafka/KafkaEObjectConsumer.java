@@ -1,3 +1,16 @@
+/**
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved. 
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *     Data In Motion - initial API and implementation
+ */
 package org.eclipse.fennec.kafka;
 
 import java.time.Duration;
@@ -15,7 +28,7 @@ import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.fennec.demo.addressbook.AddressbookFactory;
+import org.eclipse.fennec.demo.addressbook.AddressBookFactory;
 import org.eclipse.fennec.kafka.emf.KafkaEMFConstants;
 import org.eclipse.fennec.kafka.emf.KafkaEObjectDeserializer;
 import org.osgi.framework.BundleContext;
@@ -31,7 +44,7 @@ public class KafkaEObjectConsumer {
     private final CountDownLatch shutdownLatch = new CountDownLatch(1);
     private volatile boolean running = true;
     @Reference
-    private AddressbookFactory factory;
+    private AddressBookFactory factory;
     @Reference
     private ResourceSet resourceSet;
     

@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook.configuration;
 
@@ -9,12 +20,12 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.resource.Resource.Factory;
 
-import org.eclipse.fennec.demo.addressbook.AddressbookFactory;
-import org.eclipse.fennec.demo.addressbook.AddressbookPackage;
+import org.eclipse.fennec.demo.addressbook.AddressBookFactory;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 
-import org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl;
+import org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl;
 
-import org.eclipse.fennec.demo.addressbook.util.AddressbookResourceFactoryImpl;
+import org.eclipse.fennec.demo.addressbook.util.AddressBookResourceFactoryImpl;
 
 import org.gecko.emf.osgi.configurator.EPackageConfigurator;
 
@@ -34,13 +45,13 @@ import org.osgi.service.condition.Condition;
  * 
  * @generated
  */
-@Component(name = "AddressbookConfigurator")
-@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.util.AddressbookResourceFactoryImpl, org.eclipse.emf.ecore.resource.Resource$Factory\"" , "uses:=\"org.eclipse.emf.ecore.resource,org.eclipse.fennec.demo.addressbook.util\"" })
-@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.AddressbookFactory, org.eclipse.emf.ecore.EFactory\"" , "uses:=\"org.eclipse.emf.ecore,org.eclipse.fennec.demo.addressbook\"" })
-@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.AddressbookPackage, org.eclipse.emf.ecore.EPackage\"" , "uses:=\"org.eclipse.emf.ecore,org.eclipse.fennec.demo.addressbook\"" })
+@Component(name = "AddressBookConfigurator")
+@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.util.AddressBookResourceFactoryImpl, org.eclipse.emf.ecore.resource.Resource$Factory\"" , "uses:=\"org.eclipse.emf.ecore.resource,org.eclipse.fennec.demo.addressbook.util\"" })
+@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.AddressBookFactory, org.eclipse.emf.ecore.EFactory\"" , "uses:=\"org.eclipse.emf.ecore,org.eclipse.fennec.demo.addressbook\"" })
+@Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.eclipse.fennec.demo.addressbook.AddressBookPackage, org.eclipse.emf.ecore.EPackage\"" , "uses:=\"org.eclipse.emf.ecore,org.eclipse.fennec.demo.addressbook\"" })
 @Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.gecko.emf.osgi.configurator.EPackageConfigurator\"" , "uses:=\"org.eclipse.emf.ecore,org.eclipse.fennec.demo.addressbook\"" })
 @Capability( namespace = "osgi.service", attribute = { "objectClass:List<String>=\"org.osgi.service.condition.Condition\"" , "uses:=org.osgi.service.condition" })
-public class AddressbookConfigurationComponent {
+public class AddressBookConfigurationComponent {
 	
 	private ServiceRegistration<?> packageRegistration = null;
 	private ServiceRegistration<EPackageConfigurator> ePackageConfiguratorRegistration = null;
@@ -55,10 +66,10 @@ public class AddressbookConfigurationComponent {
 	 */
 	@Activate
 	public void activate(BundleContext ctx) {
-		AddressbookPackage ePackage = AddressbookPackageImpl.eINSTANCE;
+		AddressBookPackage ePackage = AddressBookPackageImpl.eINSTANCE;
 		
 		
-		AddressbookEPackageConfigurator packageConfigurator = registerEPackageConfiguratorService(ePackage, ctx);
+		AddressBookEPackageConfigurator packageConfigurator = registerEPackageConfiguratorService(ePackage, ctx);
 		registerResourceFactoryService(ctx);
 		registerEPackageService(ePackage, packageConfigurator, ctx);
 		registerEFactoryService(ePackage, packageConfigurator, ctx);
@@ -66,12 +77,12 @@ public class AddressbookConfigurationComponent {
 	}
 	
 	/**
-	 * Registers the AddressbookEPackageConfigurator as a service.
+	 * Registers the AddressBookEPackageConfigurator as a service.
 	 *
 	 * @generated
 	 */
-	private AddressbookEPackageConfigurator registerEPackageConfiguratorService(AddressbookPackage ePackage, BundleContext ctx){
-		AddressbookEPackageConfigurator packageConfigurator = new AddressbookEPackageConfigurator(ePackage);
+	private AddressBookEPackageConfigurator registerEPackageConfiguratorService(AddressBookPackage ePackage, BundleContext ctx){
+		AddressBookEPackageConfigurator packageConfigurator = new AddressBookEPackageConfigurator(ePackage);
 		// register the EPackageConfigurator
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.putAll(packageConfigurator.getServiceProperties());
@@ -81,47 +92,47 @@ public class AddressbookConfigurationComponent {
 	}
 
 	/**
-	 * Registers the AddressbookResourceFactoryImpl as a service.
+	 * Registers the AddressBookResourceFactoryImpl as a service.
 	 *
 	 * @generated
 	 */
 	private void registerResourceFactoryService(BundleContext ctx){
-		AddressbookResourceFactoryImpl factory = new AddressbookResourceFactoryImpl();
+		AddressBookResourceFactoryImpl factory = new AddressBookResourceFactoryImpl();
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.putAll(factory.getServiceProperties());
-		String[] serviceClasses = new String[] {AddressbookResourceFactoryImpl.class.getName(), Factory.class.getName()};
+		String[] serviceClasses = new String[] {AddressBookResourceFactoryImpl.class.getName(), Factory.class.getName()};
 		resourceFactoryRegistration = ctx.registerService(serviceClasses, factory, properties);
 	}
 
 	/**
-	 * Registers the AddressbookPackage as a service.
+	 * Registers the AddressBookPackage as a service.
 	 *
 	 * @generated
 	 */
-	private void registerEPackageService(AddressbookPackage ePackage, AddressbookEPackageConfigurator packageConfigurator, BundleContext ctx){
+	private void registerEPackageService(AddressBookPackage ePackage, AddressBookEPackageConfigurator packageConfigurator, BundleContext ctx){
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.putAll(packageConfigurator.getServiceProperties());
-		String[] serviceClasses = new String[] {AddressbookPackage.class.getName(), EPackage.class.getName()};
+		String[] serviceClasses = new String[] {AddressBookPackage.class.getName(), EPackage.class.getName()};
 		packageRegistration = ctx.registerService(serviceClasses, ePackage, properties);
 	}
 
 	/**
-	 * Registers the AddressbookFactory as a service.
+	 * Registers the AddressBookFactory as a service.
 	 *
 	 * @generated
 	 */
-	private void registerEFactoryService(AddressbookPackage ePackage, AddressbookEPackageConfigurator packageConfigurator, BundleContext ctx){
+	private void registerEFactoryService(AddressBookPackage ePackage, AddressBookEPackageConfigurator packageConfigurator, BundleContext ctx){
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.putAll(packageConfigurator.getServiceProperties());
-		String[] serviceClasses = new String[] {AddressbookFactory.class.getName(), EFactory.class.getName()};
-		eFactoryRegistration = ctx.registerService(serviceClasses, ePackage.getAddressbookFactory(), properties);
+		String[] serviceClasses = new String[] {AddressBookFactory.class.getName(), EFactory.class.getName()};
+		eFactoryRegistration = ctx.registerService(serviceClasses, ePackage.getAddressBookFactory(), properties);
 	}
 
-	private void registerConditionService(AddressbookEPackageConfigurator packageConfigurator, BundleContext ctx){
+	private void registerConditionService(AddressBookEPackageConfigurator packageConfigurator, BundleContext ctx){
 		// register the EPackage
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.putAll(packageConfigurator.getServiceProperties());
-		properties.put(Condition.CONDITION_ID, AddressbookPackage.eNS_URI);
+		properties.put(Condition.CONDITION_ID, AddressBookPackage.eNS_URI);
 		conditionRegistration = ctx.registerService(Condition.class, Condition.INSTANCE, properties);
 	}
 
@@ -138,6 +149,6 @@ public class AddressbookConfigurationComponent {
 		resourceFactoryRegistration.unregister();
 
 		ePackageConfiguratorRegistration.unregister();
-		EPackage.Registry.INSTANCE.remove(AddressbookPackage.eNS_URI);
+		EPackage.Registry.INSTANCE.remove(AddressBookPackage.eNS_URI);
 	}
 }

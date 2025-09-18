@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook;
 
@@ -24,14 +35,14 @@ import org.osgi.annotation.versioning.ProviderType;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.eclipse.fennec.demo.addressbook.AddressbookFactory
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookFactory
  * @model kind="package"
  *        annotation="Version value='1.0'"
  * @generated
  */
 @ProviderType
-@EPackage(uri = AddressbookPackage.eNS_URI, genModel = "/model/addressbook.genmodel", genModelSourceLocations = {"model/addressbook.genmodel","org.eclipse.fennec.demo.model/model/addressbook.genmodel"}, ecore="/model/addressbook.ecore", ecoreSourceLocations="/model/addressbook.ecore")
-public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
+@EPackage(uri = AddressBookPackage.eNS_URI, genModel = "/model/addressbook.genmodel", genModelSourceLocations = {"model/addressbook.genmodel","org.eclipse.fennec.demo.model/model/addressbook.genmodel"}, ecore="/model/addressbook.ecore", ecoreSourceLocations="/model/addressbook.ecore")
+public interface AddressBookPackage extends org.eclipse.emf.ecore.EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -62,14 +73,14 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	AddressbookPackage eINSTANCE = org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl.init();
+	AddressBookPackage eINSTANCE = org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.fennec.demo.addressbook.impl.AddressBookImpl <em>Address Book</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getAddressBook()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getAddressBook()
 	 * @generated
 	 */
 	int ADDRESS_BOOK = 0;
@@ -124,7 +135,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getAddress()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getAddress()
 	 * @generated
 	 */
 	int ADDRESS = 1;
@@ -179,7 +190,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.BusinessAddressImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getBusinessAddress()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getBusinessAddress()
 	 * @generated
 	 */
 	int BUSINESS_ADDRESS = 2;
@@ -270,7 +281,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.PersonImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getPerson()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getPerson()
 	 * @generated
 	 */
 	int PERSON = 3;
@@ -352,7 +363,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.ContactImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getContact()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getContact()
 	 * @generated
 	 */
 	int CONTACT = 4;
@@ -398,7 +409,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.impl.BusinessContactImpl
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getBusinessContact()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getBusinessContact()
 	 * @generated
 	 */
 	int BUSINESS_CONTACT = 5;
@@ -444,7 +455,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.fennec.demo.addressbook.ContactType
-	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getContactType()
+	 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getContactType()
 	 * @generated
 	 */
 	int CONTACT_TYPE = 6;
@@ -725,7 +736,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	AddressbookFactory getAddressbookFactory();
+	AddressBookFactory getAddressBookFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -746,7 +757,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getAddressBook()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getAddressBook()
 		 * @generated
 		 */
 		EClass ADDRESS_BOOK = eINSTANCE.getAddressBook();
@@ -780,7 +791,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getAddress()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getAddress()
 		 * @generated
 		 */
 		EClass ADDRESS = eINSTANCE.getAddress();
@@ -814,7 +825,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.BusinessAddressImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getBusinessAddress()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getBusinessAddress()
 		 * @generated
 		 */
 		EClass BUSINESS_ADDRESS = eINSTANCE.getBusinessAddress();
@@ -856,7 +867,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.PersonImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getPerson()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getPerson()
 		 * @generated
 		 */
 		EClass PERSON = eINSTANCE.getPerson();
@@ -914,7 +925,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.ContactImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getContact()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getContact()
 		 * @generated
 		 */
 		EClass CONTACT = eINSTANCE.getContact();
@@ -940,7 +951,7 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.impl.BusinessContactImpl
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getBusinessContact()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getBusinessContact()
 		 * @generated
 		 */
 		EClass BUSINESS_CONTACT = eINSTANCE.getBusinessContact();
@@ -950,11 +961,11 @@ public interface AddressbookPackage extends org.eclipse.emf.ecore.EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.eclipse.fennec.demo.addressbook.ContactType
-		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressbookPackageImpl#getContactType()
+		 * @see org.eclipse.fennec.demo.addressbook.impl.AddressBookPackageImpl#getContactType()
 		 * @generated
 		 */
 		EEnum CONTACT_TYPE = eINSTANCE.getContactType();
 
 	}
 
-} //AddressbookPackage
+} //AddressBookPackage

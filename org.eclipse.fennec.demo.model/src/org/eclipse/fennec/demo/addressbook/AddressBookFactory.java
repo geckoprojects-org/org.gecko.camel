@@ -1,4 +1,15 @@
 /*
+ * Copyright (c) 2012 - 2025 Data In Motion and others.
+ * All rights reserved.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *      Mark Hoffmann - initial API and implementation
  */
 package org.eclipse.fennec.demo.addressbook;
 
@@ -11,18 +22,18 @@ import org.osgi.annotation.versioning.ProviderType;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.fennec.demo.addressbook.AddressbookPackage
+ * @see org.eclipse.fennec.demo.addressbook.AddressBookPackage
  * @generated
  */
 @ProviderType
-public interface AddressbookFactory extends EFactory {
+public interface AddressBookFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	AddressbookFactory eINSTANCE = org.eclipse.fennec.demo.addressbook.impl.AddressbookFactoryImpl.init();
+	AddressBookFactory eINSTANCE = org.eclipse.fennec.demo.addressbook.impl.AddressBookFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Address Book</em>'.
@@ -85,6 +96,6 @@ public interface AddressbookFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	AddressbookPackage getAddressbookPackage();
+	AddressBookPackage getAddressBookPackage();
 
-} //AddressbookFactory
+} //AddressBookFactory
