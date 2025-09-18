@@ -3,7 +3,6 @@ header:
     spdx-id: EPL-2.0
     copyright-owner: Data In Motion
     content: |
-      Copyright (c) 2012 - 2023 Data In Motion and others.
       All rights reserved. 
       
       This program and the accompanying materials are made
@@ -28,6 +27,7 @@ header:
     - '**/*.xmi'
     - '**/*.yml'
     - '**/*.yaml'
+    - '**/*.json'
     - '**/*.conf'
     - '**/*.ecore'
     - '**/*.genmodel'
@@ -53,7 +53,8 @@ header:
     - '.github/**'
     - '.gitignore'
     - 'cnf/release/**.*'
-    - 'redpanda/**/*
+    - 'redpanda/**'
+    - 'docker/**/*'
     - '.gradle-wrapper/gradle-wrapper.properties'
     - '.licenserc.yaml'
     - '**/.project'
