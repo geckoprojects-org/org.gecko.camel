@@ -17,24 +17,22 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.fennec.demo.addressbook.AddressBookPackage;
 import org.gecko.camel.example.CamelContextConfigurer;
 import org.gecko.camel.example.RouteProvider;
 import org.gecko.camel.example.emf.EMFTypeConverter;
 import org.osgi.framework.Bundle;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.condition.Condition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import dragino.DraginoPackage;
 
 @Component(immediate = true)
 public class CamelContextConfigurerImpl implements CamelContextConfigurer {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CamelContextConfigurerImpl.class);
 	@Reference
-	private DraginoPackage dragino;
+	private AddressBookPackage addressBook;
 	@Reference
 	private ResourceSet resourceSet;
 	@Reference(target = "(camel.processorName=EMFLoad)")

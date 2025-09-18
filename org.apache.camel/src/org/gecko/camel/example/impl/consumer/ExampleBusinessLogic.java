@@ -24,8 +24,6 @@ import org.osgi.service.component.annotations.ReferenceScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dragino.DraginoFactory;
-
 /**
  * Example business logic component that demonstrates how to consume
  * a CamelContext from the whiteboard prototype service factory.
