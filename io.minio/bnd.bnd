@@ -1,0 +1,33 @@
+lib.version: 8.5.17
+okhttp.version: 4.12.0
+okio.version: 3.16.0
+
+-buildpath:  \
+	io.minio:minio;version=${lib.version},\
+	com.squareup.okhttp3:okhttp;version=${okhttp.version},\
+	com.squareup.okio;version=latest
+	
+-includeresource: \
+	OSGI-OPT/src=@${repo;io.minio:minio:jar:sources;${lib.version};EXACT},\
+	OSGI-OPT/src=@${repo;com.squareup.okhttp3:okhttp:jar:sources;${okhttp.version};EXACT},\
+	OSGI-OPT/src=@${repo;com.squareup.okio:okio:jar:sources;${okio.version};EXACT}
+
+Bundle-Version: ${lib.version}.SNAPSHOT
+Bundle-Localization: bundle
+Bundle-Name: Minio Re-packaged JAR
+Bundle-Vendor: Data In Motion
+
+Export-Package: \
+	io.minio.*,\
+	okhttp3*,\
+	okio*
+	
+Import-Package: \
+	org.openjsse*;'resolution:'=optional,\
+	org.conscrypt*;'resolution:'=optional,\
+	sun.*;'resolution:'=optional,\
+	android*;'resolution:'=optional,\
+	dalvik*;'resolution:'=optional,\
+	org.simple*;'resolution:'=optional,\
+	kotlin*;'resolution:'=optional,\
+	*

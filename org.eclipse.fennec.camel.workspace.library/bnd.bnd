@@ -1,0 +1,16 @@
+-resourceonly: true
+-include: ${.}/buildpath.bnd	
+mavendeps: ${sjoin;\n; ${template;-maven-dependencies;${@}}}
+
+-includeresource: resources,\
+	{template/fennecCamel.maven=resources/template/fennecCamel.maven}	
+	
+Provide-Capability: \
+	${fennec-base}
+
+fennec-base:\
+    bnd.library;\
+        bnd.library     = fennecCamel; \
+        path            = template
+Bundle-Name: Fennec Camel Workspace Library
+Bundle-Description: Fennec Camel Workspace Library
