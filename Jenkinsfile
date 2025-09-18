@@ -14,8 +14,14 @@ pipeline  {
                 branch 'main' 
             }
             steps {
-                echo "I am building on ${env.BRANCH_NAME}"
-                sh "./gradlew clean build release -Drelease.dir=$JENKINS_HOME/repo.gecko/release/org.gecko.emf.semantic --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
+                script {
+                    echo "I am building on ${env.BRANCH_NAME}"
+                    try {
+                        sh "./gradlew clean build release -Drelease.dir=$JENKINS_HOME/repo.gecko/release/org.gecko.camel --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
+                    } finally {
+                        junit testResults: '**/generated/test-reports/**/TEST-*.xml', allowEmptyResults: true, skipPublishingChecks: true
+                    }
+                }
             }
         }
         stage('Snapshot branch release') {
@@ -23,11 +29,17 @@ pipeline  {
                 branch 'snapshot'
             }
             steps  {
-                echo "I am building on ${env.JOB_NAME}"
-                sh "./gradlew clean release --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
-                sh "mkdir -p $JENKINS_HOME/repo.gecko/snapshot/org.gecko.emf.semantic"
-                sh "rm -rf $JENKINS_HOME/repo.gecko/snapshot/org.gecko.emf.semantic/*"
-                sh "cp -r cnf/release/* $JENKINS_HOME/repo.gecko/snapshot/org.gecko.emf.semantic"
+                script {
+                    echo "I am building on ${env.JOB_NAME}"
+                    try {
+                        sh "./gradlew clean release --info --stacktrace -Dmaven.repo.local=${WORKSPACE}/.m2"
+                        sh "mkdir -p $JENKINS_HOME/repo.gecko/snapshot/org.gecko.camel"
+                        sh "rm -rf $JENKINS_HOME/repo.gecko/snapshot/org.gecko.camel/*"
+                        sh "cp -r cnf/release/* $JENKINS_HOME/repo.gecko/snapshot/org.gecko.camel"
+                    } finally {
+                        junit testResults: '**/generated/test-reports/**/TEST-*.xml', allowEmptyResults: true, skipPublishingChecks: true
+                    }
+                }
             }
         }
     }

@@ -26,6 +26,9 @@ header:
     - '**/*.bndrun'
     - '**/*.xml'
     - '**/*.xmi'
+    - '**/*.yml'
+    - '**/*.yaml'
+    - '**/*.conf'
     - '**/*.ecore'
     - '**/*.genmodel'
     - '**/*.md'
@@ -50,6 +53,7 @@ header:
     - '.github/**'
     - '.gitignore'
     - 'cnf/release/**.*'
+    - 'redpanda/**/*
     - '.gradle-wrapper/gradle-wrapper.properties'
     - '.licenserc.yaml'
     - '**/.project'

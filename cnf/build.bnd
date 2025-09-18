@@ -13,12 +13,12 @@
 # Activate baselining
 dimcBaselining: false
 mavenCentral: true
-github-project: org.gecko.emf.semantic
+github-project: org.gecko.camel
 base-version: 1.0.0
 
 # Maven Central Group-Id
 # For Geckoprojects the groupid must start with org.geckoprojects
--groupid: org.geckoprojects.emf.semantic
+-groupid: org.geckoprojects.camel
 
 javac.source: 17
 javac.target: 17
