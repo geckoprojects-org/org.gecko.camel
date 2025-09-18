@@ -32,5 +32,5 @@ src=${^src},src-gen
 	org.eclipse.fennec.camel.model;version=snapshot,\
 	camel-direct
 	
-Bundle-Version: 4.10.5
+Bundle-Version: 4.10.5.SNAPSHOT
 Bundle-Name: Apache Camel WHitebaord

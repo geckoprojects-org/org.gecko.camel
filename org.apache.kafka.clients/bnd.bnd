@@ -7,7 +7,7 @@ lib.version: 3.8.0
 	OSGI-OPT/src=@${repo;org.apache.kafka:kafka-clients:jar:sources;${lib.version};EXACT},\
 	@${repo;org.apache.kafka:kafka-clients;${lib.version}}!/META-INF/services/*
 
-Bundle-Version: ${lib.version}
+Bundle-Version: ${lib.version}.SNAPSHOT
 Bundle-Localization: bundle
 Bundle-Name: Kafka Clients Repackaged
 Bundle-Vendor: Data In Motion consulting GmbH

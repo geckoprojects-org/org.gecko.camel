@@ -80,7 +80,7 @@ DynamicImport-Package: *
 #	@${repo;org.apache.camel:camel-main;${lib.version}}!/META-INF/org/apache/camel/*;onduplicate:=MERGE
 	
 
-Bundle-Version: ${lib.version}
+Bundle-Version: ${lib.version}.SNAPSHOT
 Bundle-Localization: bundle
 Bundle-Name: Re-packaged JAR
 Bundle-Vendor: ACME Inc.
