@@ -46,7 +46,6 @@
 	com.fasterxml.jackson.core.jackson-databind;version='[2.19.2,2.19.3)',\
 	com.github.luben.zstd-jni;version='[1.5.7,1.5.8)',\
 	jakarta.activation-api;version='[2.1.1,2.1.2)',\
-	jakarta.xml.bind-api;version='[4.0.0,4.0.1)',\
 	lz4-java;version='[1.8.0,1.8.1)',\
 	org.apache.aries.spifly.dynamic.framework.extension;version='[1.3.7,1.3.8)',\
 	org.apache.camel;version=snapshot,\
@@ -73,4 +72,8 @@
 	io.minio;version=snapshot,\
 	javax.annotation-api;version='[1.3.2,1.3.3)',\
 	org.apache.commons.commons-compress;version='[1.27.1,1.27.2)',\
-	org.eclipse.fennec.demo.model;version=snapshot
+	org.eclipse.fennec.demo.model;version=snapshot,\
+	com.squareup.okhttp3;version=snapshot,\
+	com.squareup.okio;version='[3.16.0,3.16.1)',\
+	jakarta.xml.bind-api;version='[4.0.2,4.0.3)',\
+	org.jetbrains.kotlin;version=snapshot

@@ -1,0 +1,5 @@
+-buildpath: \
+	org.osgi.service.cm;version=latest,\
+	jakarta.xml.bind-api
+	
+Bundle-Version: 5.0.0.SNAPSHOT

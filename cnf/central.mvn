@@ -7,7 +7,7 @@ jakarta.activation:jakarta.activation-api:2.1.1
 jakarta.annotation:jakarta.annotation-api:2.1.1
 jakarta.ws.rs:jakarta.ws.rs-api:2.1.6
 jakarta.ws.rs:jakarta.ws.rs-api:3.1.0
-jakarta.xml.bind:jakarta.xml.bind-api:4.0.0
+jakarta.xml.bind:jakarta.xml.bind-api:4.0.2
 #jakarta.json:jakarta.json-api:2.1.3
 
 # used by configurator
@@ -256,15 +256,28 @@ org.lz4:lz4-java:1.8.0
 org.apache.servicemix.bundles:org.apache.servicemix.bundles.kafka-clients:3.9.1_1
 #org.apache.servicemix.specs:org.apache.servicemix.specs.jsr339-api-2.1:2.9.0
 
+com.sun.xml.bind:jaxb-osgi:jar:4.0.5
 io.minio:minio:8.5.17
 io.minio:minio:jar:sources:8.5.17
 com.squareup.okhttp3:okhttp:4.12.0
 com.squareup.okhttp3:okhttp:jar:sources:4.12.0
+com.squareup.okhttp3:okhttp:5.1.0
+com.squareup.okhttp3:okhttp:jar:sources:5.1.0
 com.squareup.okio:okio:3.16.0
 com.squareup.okio:okio:jar:sources:3.16.0
 com.squareup.okio:okio-jvm:3.16.0
+com.squareup.okio:okio-jvm:jar:sources:3.16.0
+org.jetbrains.kotlin:kotlin-stdlib:2.2.20
+org.jetbrains.kotlin:kotlin-stdlib:jar:sources:2.2.20
+org.jetbrains.kotlin:kotlin-reflect:2.2.20
+org.jetbrains.kotlin:kotlin-reflect:jar:sources:2.2.20
+org.simpleframework:simple-xml:2.7.1
+org.simpleframework:simple-xml:jar:sources:2.7.1
+xpp3:xpp3:1.1.3.3
+#xpp3:xpp3:jar:sources:1.1.3.3
 commons-codec:commons-codec:1.19.0
 org.apache.commons:commons-compress:1.27.1
+commons-io:commons-io:2.20.0
 org.bouncycastle:bcprov-jdk18on:1.82
 org.bouncycastle:bctls-jdk18on:1.82
 org.bouncycastle:bcutil-jdk18on:1.82

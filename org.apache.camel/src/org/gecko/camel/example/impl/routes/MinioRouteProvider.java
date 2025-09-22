@@ -40,32 +40,28 @@ import org.gecko.camel.example.RouteProvider;
  * 
  * @author Mark Hoffmann
  */
-//@Component(property = {
-//               "route.description=Kafka processing routes",
-//               "route.version=1.0",
-//               "camel.route=myK"
-//           }, immediate = true)
-public class KafkaRouteProvider implements RouteProvider {
+@Component(property = {
+               "route.description=Minio processing routes",
+               "route.version=1.0",
+               "camel.route=myMinio"
+           }, immediate = true)
+public class MinioRouteProvider implements RouteProvider {
     
     @Override
     public void configureRoutes(RouteBuilder builder) throws Exception {
         
         // Main EMF processing route
         // Processors are automatically resolved from the whiteboard
-        builder.from("kafka:dummy?brokers=localhost:19092&groupId=my-consumer-group")
-               .routeId("kafka-main-processing")
-               .log("Received message from Kafka: ${body}")
-               .process(exchange -> {
-                   // Process the received message
-                   String message = exchange.getIn().getBody(String.class);
-                   System.out.println("Processing: " + message);
-               });
+        builder.from("minio:test?endpoint=localhost&proxyPort=9000&accessKey=admin&secretKey=password123&objectName=Person.xmi&deleteAfterRead=false&repeatCount=5")
+        	.log("Received message from Minio: ${body}")
+        	.to("file:/home/mark/tmp/?fileName=PersonMark.xmi")
+            .routeId("minio-main-processing");
         
     }
     
     @Override
     public String getRouteId() {
-        return "kafka-processing-routes";
+        return "minio-processing-routes";
     }
     
 }

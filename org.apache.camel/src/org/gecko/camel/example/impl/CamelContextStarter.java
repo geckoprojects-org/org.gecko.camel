@@ -41,7 +41,7 @@ public class CamelContextStarter implements CamelContextConfigurer {
 	private Processor saveProcessor;
 	
 //  for kafka:
-	@Reference(target = "(camel.route=myK)")
+	@Reference(target = "(camel.route=myMinio)")
 //	for simple or emf
 //	@Reference(target = "(camel.route=my)")
 	private RouteProvider route;

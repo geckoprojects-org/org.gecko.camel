@@ -1,0 +1,12 @@
+{
+	":configurator:resource-version": 1,
+	"MinIOClient~local": 
+	{
+		"name": "test",
+		"protocol": "http",
+		"hostname": "localhost",
+		"endpoint": "http://localhost:9000",
+		"accessKey": "admin",
+		"secretKey": "password123"
+	}
+}

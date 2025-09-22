@@ -1,0 +1,22 @@
+{
+  ":configurator:resource-version": 1,
+  
+  "MinioClient~Fuchs": 
+  {
+    "name": "Fuchs",
+    "protocol": "http",
+    "hostname" : "192.168.1.112",
+    "timeout" : 10,
+    "accessKey" : "AKIAIOSFODNN7EXAMPLE",
+    "secretKey" : "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+	},
+  "MinioClient~Hoff": 
+  {
+    "name": "Hoffmann",
+    "protocol": "http",
+    "hostname" : "localhost",
+    "timeout" : 10,
+    "accessKey" : "minioadmin",
+    "secretKey" : "minioadmin"
+	}
+}

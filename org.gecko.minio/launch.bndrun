@@ -1,0 +1,24 @@
+#-runfw: org.apache.felix.framework;version=5
+#-runee: JavaSE-1.8
+
+-runprovidedcapabilities: \${native_capability}
+
+#-resolve.effective: active;skip:="osgi.service"
+
+-runbundles: \
+	org.apache.felix.configadmin;version='[1.9.10,1.9.11)',\
+	org.apache.felix.configurator;version='[1.0.8,1.0.9)',\
+	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
+	org.apache.felix.gogo.runtime;version='[1.1.0,1.1.1)',\
+	org.apache.felix.gogo.shell;version='[1.1.0,1.1.1)',\
+	org.apache.felix.scr;version='[2.1.14,2.1.15)',\
+	org.gecko.minio.config;version=snapshot,\
+	org.gecko.minio;version=snapshot
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	bnd.identity;id='org.gecko.minio.config',\
+	bnd.identity;id='org.gecko.minio'
+-runfw: org.apache.felix.framework;version='[6.0.1,6.0.1]'
+-runee: JavaSE-1.8

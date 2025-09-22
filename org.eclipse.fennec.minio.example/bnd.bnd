@@ -1,0 +1,10 @@
+-buildpath: \
+	slf4j.api;version=latest,\
+	com.fasterxml.jackson.core.jackson-databind;version=latest,\
+	com.fasterxml.jackson.core.jackson-core;version=latest,\
+	com.squareup.okhttp3;version=snapshot,\
+	io.minio;version=snapshot
+#	org.gecko.minio;version=snapshot
+
+Bundle-Name: Fennec MinIO Example
+Bundle-Description: MinIO OSGi client example
