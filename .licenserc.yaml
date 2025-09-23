@@ -55,6 +55,7 @@ header:
     - '.gitignore'
     - 'cnf/release/**.*'
     - 'redpanda/**'
+    - 'minio/**'
     - 'docker/**/*'
     - '.gradle-wrapper/gradle-wrapper.properties'
     - '.licenserc.yaml'
